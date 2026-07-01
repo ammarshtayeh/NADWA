@@ -118,60 +118,60 @@ export const ResourcesPage: React.FC = () => {
 
   const getIcon = (cat: string) => {
     switch (cat) {
-      case 'pdf': return <FileText className="w-5 h-5 text-red-400" />;
-      case 'video': return <Youtube className="w-5 h-5 text-emerald-450" />;
-      case 'site': return <Globe className="w-5 h-5 text-blue-450" />;
-      case 'book': return <BookOpen className="w-5 h-5 text-amber-450" />;
-      default: return <FileText className="w-5 h-5 text-slate-400" />;
+      case 'pdf': return <FileText className="w-7 h-7 text-red-400" />;
+      case 'video': return <Youtube className="w-7 h-7 text-emerald-450" />;
+      case 'site': return <Globe className="w-7 h-7 text-blue-450" />;
+      case 'book': return <BookOpen className="w-7 h-7 text-amber-450" />;
+      default: return <FileText className="w-7 h-7 text-slate-400" />;
     }
   };
 
   return (
     <div className="relative pt-20 animate-fade-in">
       {/* 1. Header Banner */}
-      <section className="relative py-20 bg-slate-950 overflow-hidden border-b border-slate-900/60">
+      <section className="relative py-28 bg-slate-950 overflow-hidden border-b border-slate-900/60">
         <div className="absolute inset-0 bg-tatreez-stitch opacity-[0.03] z-0"></div>
-        <div className="absolute top-1/2 left-[-10%] w-[300px] h-[300px] glow-purple opacity-5 blur-[120px] z-0"></div>
+        <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] glow-purple opacity-5 blur-[140px] z-0"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/20 text-emerald-455 text-xs font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-950/40 border border-emerald-500/20 text-emerald-455 text-sm font-bold">
+            <Sparkles className="w-4.5 h-4.5" />
             <span>مكتبة الموارد المساعدة وحقيبة التنزيل</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-100 leading-tight">
             حقيبة موارد الدورة والندوة
           </h1>
-          <p className="max-w-xl mx-auto text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
             حملّي ملفات العرض ودليل الأوامر الذهبية، واكتشفي قنوات الشرح والمنصات التفاعلية الموثوقة لخدمة أهدافكِ التعليمية والنقابية.
           </p>
         </div>
       </section>
 
       {/* 2. Controls and Search */}
-      <section className="relative py-12 bg-slate-950/40 overflow-hidden border-b border-slate-900/40">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 space-y-8">
+      <section className="relative py-14 bg-slate-950/40 overflow-hidden border-b border-slate-900/40">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 space-y-10">
           
           {/* Search bar */}
-          <div className="max-w-xl mx-auto relative">
-            <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-500">
-              <Search className="w-5 h-5" />
+          <div className="max-w-2xl mx-auto relative">
+            <div className="absolute inset-y-0 right-5 flex items-center pointer-events-none text-slate-500">
+              <Search className="w-6 h-6" />
             </div>
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="ابحثي عن ملفات، أدوات، شروحات يوتيوب أو مراجع..."
-              className="w-full bg-slate-950 border border-slate-850 hover:border-slate-800 focus:border-emerald-500/60 rounded-xl py-3.5 pr-12 pl-4 text-xs sm:text-sm text-slate-200 placeholder-slate-600 focus:outline-none transition-colors shadow-inner"
+              className="w-full bg-slate-950 border border-slate-850 hover:border-slate-800 focus:border-emerald-500/60 rounded-2xl py-5 pr-14 pl-5 text-sm sm:text-base text-slate-200 placeholder-slate-600 focus:outline-none transition-colors shadow-inner"
             />
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2.5">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id as any)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border transition-all duration-300 cursor-pointer ${
+                className={`px-6 py-3 rounded-full text-sm sm:text-base font-bold border transition-all duration-300 cursor-pointer ${
                   activeCategory === cat.id
                     ? 'bg-emerald-500 border-emerald-450 text-slate-950 shadow-md shadow-emerald-500/10'
                     : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900'
@@ -186,14 +186,14 @@ export const ResourcesPage: React.FC = () => {
       </section>
 
       {/* 3. Resources Grid */}
-      <section className="relative py-16 bg-slate-950/20 min-h-[400px]">
+      <section className="relative py-20 bg-slate-950/20 min-h-[400px]">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           
           <AnimatePresence mode="popLayout">
             {filteredResources.length > 0 ? (
               <motion.div 
                 layout
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 gap-8"
               >
                 {filteredResources.map((res) => (
                   <motion.div
@@ -203,37 +203,37 @@ export const ResourcesPage: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="glass-panel border-slate-900 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-850 transition-all group"
+                    className="glass-panel border-slate-900 rounded-3xl p-8 flex flex-col justify-between hover:border-slate-850 transition-all group"
                   >
-                      <div className="space-y-4">
+                      <div className="space-y-5">
                         {/* Title & Badge */}
                         <div className="flex justify-between items-start gap-4">
-                          <div className="flex items-center gap-3">
-                            <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-900 flex-shrink-0">
+                          <div className="flex items-center gap-4">
+                            <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-900 flex-shrink-0">
                               {getIcon(res.category)}
                             </div>
-                            <h3 className="font-extrabold text-slate-100 text-sm sm:text-base leading-tight group-hover:text-emerald-400 transition-colors">
+                            <h3 className="font-extrabold text-slate-100 text-base sm:text-lg leading-tight group-hover:text-emerald-400 transition-colors">
                               {res.title}
                             </h3>
                           </div>
 
                           {res.badge && (
-                            <span className="px-2 py-0.5 rounded-md bg-slate-950 border border-slate-900 text-slate-400 text-[10px] font-bold">
+                            <span className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-900 text-slate-400 text-xs font-bold whitespace-nowrap">
                               {res.badge}
                             </span>
                           )}
                         </div>
 
                         {/* Description */}
-                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
                           {res.description}
                         </p>
                       </div>
 
                       {/* Download / Visit Panel */}
-                      <div className="flex items-center justify-between gap-4 pt-5 mt-6 border-t border-slate-900">
+                      <div className="flex items-center justify-between gap-4 pt-6 mt-8 border-t border-slate-900">
                         {res.sizeOrDuration && (
-                          <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-500">
+                          <span className="text-xs sm:text-sm font-mono font-bold text-slate-500">
                             الحجم/المدة: {res.sizeOrDuration}
                           </span>
                         )}
@@ -242,9 +242,9 @@ export const ResourcesPage: React.FC = () => {
                           <a
                             href={res.url}
                             download
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-650 text-slate-950 text-xs font-bold transition-all shadow-md cursor-pointer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-650 text-slate-950 text-sm font-bold transition-all shadow-md cursor-pointer"
                           >
-                            <Download className="w-3.5 h-3.5" />
+                            <Download className="w-4 h-4" />
                             <span>تحميل الملف المباشر</span>
                           </a>
                         ) : (
@@ -252,10 +252,10 @@ export const ResourcesPage: React.FC = () => {
                             href={res.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-850 border border-slate-850 text-slate-200 text-xs font-bold transition-all cursor-pointer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-850 text-slate-200 text-sm font-bold transition-all cursor-pointer"
                           >
                             <span>فتح الرابط الرسمي</span>
-                            <ExternalLink className="w-3.5 h-3.5 text-emerald-450" />
+                            <ExternalLink className="w-4 h-4 text-emerald-450" />
                           </a>
                         )}
                       </div>
@@ -267,12 +267,12 @@ export const ResourcesPage: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-center py-20 bg-slate-950/30 border border-slate-900/60 rounded-3xl p-8"
+                className="text-center py-24 bg-slate-950/30 border border-slate-900/60 rounded-3xl p-10"
               >
-                <p className="text-slate-400 text-sm">عذراً، لم نجد أي تطابقات لكلمة البحث في الموارد المتوفرة.</p>
+                <p className="text-slate-400 text-base">عذراً، لم نجد أي تطابقات لكلمة البحث في الموارد المتوفرة.</p>
                 <button
                   onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
-                  className="mt-4 px-4 py-2 bg-slate-900 border border-slate-800 text-xs font-bold text-emerald-450 hover:bg-slate-850 rounded-xl transition-all cursor-pointer"
+                  className="mt-5 px-6 py-3 bg-slate-900 border border-slate-800 text-sm font-bold text-emerald-450 hover:bg-slate-850 rounded-xl transition-all cursor-pointer"
                 >
                   إعادة ضبط الفلاتر والبحث
                 </button>
