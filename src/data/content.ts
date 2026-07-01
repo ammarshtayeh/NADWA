@@ -1058,7 +1058,7 @@ export const siteContent: SiteContent = {
     contactTitle: "اتصلي بنا",
     phone: "+970 599 123 456",
     email: "info@nadwa-ai.ps",
-    location: "فلسطين - رام الله / غزة",
+    location: "فلسطين / نابلس",
     quote: "الذكاء الاصطناعي لا يستبدل المعلمة، بل يمنحها وقتاً أكبر للإبداع والعطاء الإنساني.",
     rights: "جميع الحقوق محفوظة © 2026. جمعية معلمات فلسطين."
   }

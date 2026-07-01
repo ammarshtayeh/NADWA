@@ -29,7 +29,7 @@ export const Stats: React.FC = () => {
     {
       number: "500+",
       label: "معلمة مستهدفة",
-      description: "تمكين المعلمات في غزة ورام الله والمحافظات تكنولوجياً ونقابياً.",
+      description: "تمكين المعلمات في نابلس والمحافظات تكنولوجياً ونقابياً.",
       icon: Users,
       color: "text-amber-400 border-amber-500/20"
     },
