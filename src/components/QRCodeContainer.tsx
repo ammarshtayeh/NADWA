@@ -1,7 +1,20 @@
-import React from 'react';
-import { QrCode, Phone, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, Sparkles, X, Maximize2 } from 'lucide-react';
 
 export const QRCodeContainer: React.FC = () => {
+  const [qrUrl, setQrUrl] = useState('https://nadwa.vercel.app/resources');
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const origin = window.location.origin;
+      setQrUrl(`${origin}/resources`);
+    }
+  }, []);
+
+  const qrImageSrc = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(qrUrl)}&color=0f172a&bgcolor=ffffff`;
+
   return (
     <section className="relative py-16 bg-slate-950 overflow-hidden border-b border-slate-900/40">
       <div className="absolute inset-0 bg-tatreez-stitch opacity-[0.015] z-0"></div>
@@ -9,95 +22,29 @@ export const QRCodeContainer: React.FC = () => {
       <div className="relative max-w-4xl mx-auto px-4 z-10">
         <div className="glass-panel border-emerald-500/10 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-xl">
           
-          {/* QR Code Graphic Frame (Palestinian Tatreez Frame) */}
-          <div className="relative bg-slate-950 border border-slate-800 p-4.5 rounded-2xl flex-shrink-0 flex items-center justify-center shadow-inner group">
-            {/* Corner stitches */}
-            <div className="absolute top-1 right-1 text-red-500 text-xs font-serif select-none opacity-40">✕ ✕</div>
-            <div className="absolute bottom-1 left-1 text-red-500 text-xs font-serif select-none opacity-40">✕ ✕</div>
+          {/* QR Code Container with Zoom trigger */}
+          <div 
+            onClick={() => setIsZoomed(true)}
+            className="relative bg-white border-4 border-slate-900 p-3.5 rounded-2xl flex-shrink-0 flex items-center justify-center shadow-2xl cursor-pointer group hover:scale-[1.03] transition-all"
+            title="انقر لتكبير الرمز للشاشة الكاملة"
+          >
+            {/* Visual corner stitches */}
+            <div className="absolute top-1 right-1 text-slate-900 text-[10px] font-black select-none opacity-30">✕</div>
+            <div className="absolute bottom-1 left-1 text-slate-900 text-[10px] font-black select-none opacity-30">✕</div>
             
-            {/* SVG representation of a scannable QR Code */}
-            <svg 
-              className="w-32 h-32 sm:w-36 sm:h-36 text-slate-100 fill-current group-hover:scale-[1.02] transition-transform duration-300"
-              viewBox="0 0 29 29"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* QR Code finder patterns */}
-              <rect x="0" y="0" width="7" height="7" />
-              <rect x="1" y="1" width="5" height="5" fill="#020617" />
-              <rect x="2" y="2" width="3" height="3" />
-              
-              <rect x="22" y="0" width="7" height="7" />
-              <rect x="23" y="1" width="5" height="5" fill="#020617" />
-              <rect x="24" y="2" width="3" height="3" />
-              
-              <rect x="0" y="22" width="7" height="7" />
-              <rect x="1" y="22" width="5" height="5" fill="#020617" />
-              <rect x="2" y="23" width="3" height="3" />
-
-              {/* QR Alignment and timing patterns */}
-              <rect x="22" y="22" width="3" height="3" />
-              <rect x="8" y="2" width="1" height="1" />
-              <rect x="10" y="2" width="2" height="1" />
-              <rect x="13" y="1" width="1" height="3" />
-              <rect x="16" y="0" width="2" height="2" />
-              <rect x="19" y="3" width="1" height="1" />
-              
-              {/* Random simulated data pixels for ramallah/resources path */}
-              <rect x="8" y="5" width="2" height="2" />
-              <rect x="11" y="6" width="3" height="1" />
-              <rect x="15" y="4" width="1" height="3" />
-              <rect x="18" y="5" width="2" height="1" />
-              <rect x="20" y="7" width="1" height="2" />
-              
-              <rect x="0" y="9" width="3" height="1" />
-              <rect x="4" y="8" width="1" height="2" />
-              <rect x="6" y="9" width="2" height="2" />
-              <rect x="9" y="8" width="1" height="1" />
-              <rect x="11" y="9" width="3" height="3" />
-              <rect x="15" y="8" width="2" height="1" />
-              <rect x="18" y="9" width="4" height="2" />
-              <rect x="23" y="8" width="2" height="2" />
-              <rect x="26" y="9" width="3" height="1" />
-              
-              <rect x="2" y="12" width="1" height="3" />
-              <rect x="5" y="13" width="3" height="1" />
-              <rect x="9" y="14" width="2" height="2" />
-              <rect x="12" y="13" width="4" height="2" />
-              <rect x="17" y="12" width="1" height="1" />
-              <rect x="19" y="14" width="2" height="2" />
-              <rect x="22" y="13" width="3" height="1" />
-              <rect x="27" y="12" width="1" height="3" />
-              
-              <rect x="0" y="17" width="2" height="2" />
-              <rect x="3" y="16" width="1" height="3" />
-              <rect x="6" y="18" width="2" height="1" />
-              <rect x="9" y="17" width="1" height="1" />
-              <rect x="11" y="16" width="3" height="2" />
-              <rect x="16" y="17" width="2" height="1" />
-              <rect x="19" y="18" width="1" height="1" />
-              <rect x="21" y="16" width="4" height="3" />
-              <rect x="26" y="17" width="2" height="1" />
-
-              <rect x="8" y="20" width="3" height="1" />
-              <rect x="12" y="21" width="1" height="2" />
-              <rect x="14" y="20" width="3" height="1" />
-              <rect x="18" y="21" width="2" height="2" />
-              <rect x="21" y="20" width="1" height="1" />
-              
-              <rect x="8" y="24" width="2" height="2" />
-              <rect x="11" y="25" width="4" height="1" />
-              <rect x="16" y="24" width="1" height="3" />
-              <rect x="18" y="25" width="3" height="1" />
-              
-              <rect x="10" y="27" width="2" height="2" />
-              <rect x="13" y="28" width="3" height="1" />
-              <rect x="17" y="27" width="1" height="2" />
-              <rect x="20" y="28" width="4" height="1" />
-            </svg>
+            {/* Real scannable dynamic QR Code */}
+            <img 
+              src={qrImageSrc} 
+              alt="رمز استجابة سريع حقيقي وقابل للمسح" 
+              className="w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-lg"
+            />
             
-            {/* Small center logo block */}
-            <div className="absolute bg-slate-950 p-1 border border-slate-900 rounded-lg flex items-center justify-center">
-              <QrCode className="w-5 h-5 text-emerald-450" />
+            {/* Hover overlay with indicator */}
+            <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <div className="flex flex-col items-center space-y-1">
+                <Maximize2 className="w-6 h-6 text-emerald-400" />
+                <span className="text-[10px] font-bold text-slate-200">تكبير الرمز</span>
+              </div>
             </div>
           </div>
 
@@ -106,22 +53,83 @@ export const QRCodeContainer: React.FC = () => {
             <div className="space-y-1">
               <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest flex items-center justify-center md:justify-start gap-1.5">
                 <Sparkles className="w-4 h-4 text-red-500 animate-pulse" />
-                <span>حملّي الحقيبة التدريبية فوراً</span>
+                <span>مسح وتنزيل الموارد</span>
               </span>
-              <h3 className="text-lg sm:text-xl font-black text-slate-100">الحقيبة الرقمية للأوامر البرمجية</h3>
+              <h3 className="text-lg sm:text-xl font-black text-slate-100">الحقيبة الرقمية للندوة</h3>
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                قومي بمسح رمز الاستجابة السريعة (QR Code) باستخدام كاميرا جوالكِ للانتقال مباشرة لصفحة الموارد وتحميل دليل المتحدث وخطط الدروس وعروض الباوربوينت والروابط المساعدة لهاتفكِ.
+                انقر على الرمز لتكبيره على كامل الشاشة؛ لكي تتمكن جميع المعلمات الحاضرات في الندوة من مسحه بكاميرا الجوال دفعة واحدة من مسافة بعيدة وتحميل الموارد الرقمية والكتب التدريبية مباشرة.
               </p>
             </div>
             
-            <div className="inline-flex items-center gap-2 bg-slate-950/80 border border-slate-900 px-4 py-2.5 rounded-xl text-xs text-slate-300 font-semibold select-none">
-              <Phone className="w-4 h-4 text-red-500" />
-              <span>جاهز للمسح المباشر داخل القاعة 📱</span>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
+              <div className="inline-flex items-center gap-1.5 bg-slate-950 border border-slate-900 px-3.5 py-2 rounded-xl text-[11px] text-slate-350 font-bold select-none">
+                <Phone className="w-3.5 h-3.5 text-red-500" />
+                <span>رابط الموارد المباشر: </span>
+                <span className="text-emerald-400 font-mono text-xs">{qrUrl.replace('http://', '').replace('https://', '')}</span>
+              </div>
+              
+              <button
+                onClick={() => setIsZoomed(true)}
+                className="inline-flex items-center gap-1 px-4 py-2 bg-emerald-500 hover:bg-emerald-650 text-slate-950 text-xs font-bold rounded-xl transition-all cursor-pointer shadow-md shadow-emerald-500/10"
+              >
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>عرض بالحجم الكامل</span>
+              </button>
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* Fullscreen Lightbox Zoom Modal */}
+      <AnimatePresence>
+        {isZoomed && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-md p-4">
+            {/* Modal backdrop closer */}
+            <div 
+              className="absolute inset-0 cursor-pointer"
+              onClick={() => setIsZoomed(false)}
+            />
+
+            {/* Modal Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative bg-white border-8 border-slate-900 rounded-3xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center space-y-6 shadow-2xl z-10"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setIsZoomed(false)}
+                className="absolute -top-12 right-0 p-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-xs font-bold"
+              >
+                <X className="w-4 h-4 text-red-500" />
+                <span>إغلاق التكبير</span>
+              </button>
+
+              <h4 className="text-slate-950 font-black text-sm sm:text-base text-center">
+                امسحي الرمز بكاميرا الجوال لتحميل حقيبة الموارد 📱
+              </h4>
+
+              {/* Enlarged QR Code */}
+              <img 
+                src={qrImageSrc} 
+                alt="رمز استجابة سريع مكبر" 
+                className="w-64 h-64 sm:w-80 sm:h-80 object-contain rounded-xl select-none"
+              />
+
+              <div className="text-center space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono block select-all">
+                  {qrUrl}
+                </span>
+                <span className="text-[10px] text-slate-450 font-semibold block">
+                  الرمز ديناميكي وسيعمل فوراً على أي نطاق يتم استضافته
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
