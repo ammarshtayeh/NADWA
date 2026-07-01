@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>دليل المتحدث الاحترافي — ندوة 3 ساعات | AI للمعلمات الفلسطينيات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0d3d2e;
+      --primary-mid: #1a5f4a;
+      --primary-light: #e6f4ef;
+      --gold: #b8860b;
+      --gold-light: #fdf8eb;
+      --accent: #8b2635;
+      --text: #1a1a1a;
+      --muted: #444;
+      --border: #c5d5ce;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Tajawal", "Noto Naskh Arabic", Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.72;
+      color: var(--text);
+      margin: 0;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 270mm;
+      background: linear-gradient(145deg, #0d3d2e 0%, #1a5f4a 40%, #0d3d2e 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25mm 20mm;
+    }
+    .cover .tag { font-size: 10pt; letter-spacing: 2px; opacity: 0.85; border: 1px solid rgba(255,255,255,0.35); padding: 6px 20px; border-radius: 20px; margin-bottom: 15mm; }
+    .cover h1 { font-size: 26pt; font-weight: 800; line-height: 1.45; margin: 0 0 8mm; }
+    .cover .subtitle { font-size: 14pt; opacity: 0.92; max-width: 140mm; line-height: 1.8; }
+    .cover .duration { font-size: 22pt; font-weight: 700; color: #f0d78c; margin: 18mm 0 8mm; }
+    .cover .deliverables { font-size: 10.5pt; opacity: 0.88; line-height: 2; text-align: right; max-width: 150mm; }
+    .cover .confidential { margin-top: 20mm; font-size: 9pt; opacity: 0.6; }
+    h1 { color: var(--primary); font-size: 18pt; border-bottom: 3px solid var(--gold); padding-bottom: 5px; margin-top: 0; page-break-after: avoid; }
+    h2 { color: var(--primary-mid); font-size: 14pt; margin-top: 16px; page-break-after: avoid; }
+    h3 { color: var(--primary); font-size: 12pt; margin-top: 12px; }
+    h4 { font-size: 11pt; color: var(--muted); margin-top: 8px; }
+    p { margin: 6px 0; text-align: justify; }
+    ul, ol { margin: 6px 0; padding-right: 20px; }
+    li { margin: 3px 0; }
+    .section { page-break-before: always; padding-top: 4mm; }
+    .section-no-break { page-break-before: auto; }
+    .toc { page-break-after: always; }
+    .toc li { padding: 5px 0; border-bottom: 1px dotted var(--border); list-style: none; }
+    .toc .part { font-weight: 700; color: var(--gold); margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+    th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: right; vertical-align: top; }
+    th { background: var(--primary-light); color: var(--primary); font-weight: 700; }
+    tr:nth-child(even) td { background: #f9fbfa; }
+    .box { background: var(--primary-light); border-right: 4px solid var(--primary-mid); padding: 10px 14px; margin: 10px 0; border-radius: 0 5px 5px 0; }
+    .box-gold { background: var(--gold-light); border-right-color: var(--gold); }
+    .box-warn { background: #fdf0f0; border-right-color: var(--accent); }
+    .box-tip { background: #fffbea; border-right-color: #c9a000; }
+    .prompt { background: #f0f4f8; border: 1px solid #d0dae4; border-radius: 5px; padding: 10px 12px; margin: 8px 0; font-size: 10pt; line-height: 1.85; white-space: pre-wrap; }
+    .output { background: #fff; border: 1px dashed var(--primary-mid); padding: 10px 12px; margin: 8px 0; font-size: 10pt; white-space: pre-wrap; }
+    .script-block { border: 2px solid var(--primary-mid); border-radius: 8px; margin: 12px 0; overflow: hidden; page-break-inside: avoid; }
+    .script-header { background: var(--primary); color: #fff; padding: 8px 14px; font-weight: 700; font-size: 10.5pt; display: flex; justify-content: space-between; }
+    .script-body { padding: 12px 14px; background: #fff; }
+    .say { background: #f8fffe; border-right: 3px solid var(--primary-mid); padding: 8px 12px; margin: 6px 0; font-size: 10.5pt; }
+    .do { background: var(--gold-light); border-right: 3px solid var(--gold); padding: 6px 12px; margin: 6px 0; font-size: 10pt; color: #5a4a00; }
+    .tone { background: #f0f0f8; border-right: 3px solid #666; padding: 6px 12px; margin: 6px 0; font-size: 9.5pt; color: #333; font-style: italic; }
+    .slide-ref { display: inline-block; background: var(--primary); color: #fff; font-size: 8.5pt; padding: 2px 8px; border-radius: 10px; margin-left: 6px; }
+    .timeline-row { background: var(--primary-light); }
+    .checklist li { list-style: none; }
+    .checklist li::before { content: "☐ "; color: var(--primary-mid); font-weight: bold; }
+    .run-show { font-size: 9.5pt; }
+    .run-show td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; width: 55px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .footer-note { font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 15px; border-top: 1px solid var(--border); padding-top: 6px; }
+    @media print { .section { page-break-before: always; } }
+  </style>
+</head>
+<body>
+
+<!-- ==================== الغلاف ==================== -->
+<div class="cover">
+  <div class="tag">نسخة المتحدث — سري — للاستخدام الداخلي</div>
+  <h1>دليل الإلقاء الاحترافي<br/>الذكاء الاصطناعي في خدمة المعلمة الفلسطينية</h1>
+  <div class="subtitle">ندوة عملية — نقابة المعلمات ورياض الأطفال<br/>سكربت + عرض تقديمي + Pitch Deck + العمل النقابي</div>
+  <div class="duration">⏱ 180 دقيقة — 3 ساعات بالضبط</div>
+  <div class="deliverables">
+    ✦ سكربت إلقاء دقيقة بدقيقة &nbsp;|&nbsp; ✦ عرض PowerPoint الندوة (28 شريحة)<br/>
+    ✦ Pitch Deck للنقابة ($500) &nbsp;|&nbsp; ✦ 80+ Prompt + 20 نقابي<br/>
+    ✦ AI في التنظيم النقابي &nbsp;|&nbsp; ✦ ورش + أمان + خطة B
+  </div>
+  <div class="confidential">Playbook احترافي — ندوة + عرض + Pitch</div>
+</div>
+
+<!-- ==================== الفهرس ==================== -->
+<div class="section toc section-no-break">
+  <h1>فهرس الدليل</h1>
+  <ul>
+    <li class="part">الجزء أ — قبل الندوة</li>
+    <li>١ &nbsp; بطاقة الندوة — ما تقدّمه الجمعية (قيمة $500)</li>
+    <li>٢ &nbsp; جدول الـ 180 دقيقة — الجدول الكامل 180 دقيقة (صفحة واحدة)</li>
+    <li>٣ &nbsp; تحضير احترافي — من أسبوع قبل إلى لحظة البداية</li>
+    <li>٤ &nbsp; إعداد القاعة + قائمة المواد + خطة B</li>
+    <li class="part">الجزء ب — الإلقاء (السكربت الكامل)</li>
+    <li>٥ &nbsp; البلوك 1: الافتتاح والت rapport (0:00–0:15)</li>
+    <li>٦ &nbsp; البلوك 2: AI في 15 دقيقة + عرض حي (0:15–0:30)</li>
+    <li>٧ &nbsp; البلوك 3: ورشة «أول درس جاهز» (0:30–1:15)</li>
+    <li>٨ &nbsp; استراحة (1:15–1:30)</li>
+    <li>٩ &nbsp; البلوك 4: ورشة «تقييم وتمايز» (1:30–2:05)</li>
+    <li>١٠ &nbsp; البلوك 5: أمثلة حية KG + مدارس (2:05–2:20)</li>
+    <li>١١ &nbsp; البلوك 6: الأمان + السياق الفلسطيني + <strong>العمل النقابي</strong> (2:20–2:45)</li>
+    <li>١٢ &nbsp; البلوك 7: الختام وخطة العمل (2:45–3:00)</li>
+    <li class="part">الجزء ج — المراجع والأدوات</li>
+    <li>١٣ &nbsp; القالب الذهبي + 10 قواعد Prompt</li>
+    <li>١٤ &nbsp; 80 Prompt جاهز (مدارس + KG)</li>
+    <li>١٥ &nbsp; 8 أمثلة كاملة Before/After + مخرجات نموذجية</li>
+    <li>١٦ &nbsp; 25 شريحة — محتوى كل slide</li>
+    <li>١٧ &nbsp; 15 سؤالاً متوقعاً — إجابات حرفية</li>
+    <li>١٨ &nbsp; مواد التوزيع + رسالة ما بعد الندوة</li>
+    <li>١٩ &nbsp; نموذج تقييم + صياغة شهادة</li>
+    <li class="part">الجزء د — احتراف $500</li>
+    <li>٢٠ &nbsp; دليل الإلقاء — صوت، حركة، شخصيات القاعة</li>
+    <li>٢١ &nbsp; مخرجات AI كاملة — backup بدون إنترنت</li>
+    <li>٢٢ &nbsp; اتفاق $500 — رسالة + checklist الدفع</li>
+    <li>٢٣ &nbsp; أخطاء المتحدث — تجنّبيها</li>
+    <li class="part">الجزء هـ — النقابة والـ Pitch</li>
+    <li>٢٤ &nbsp; AI في التنظيم النقابي — دليل شامل + 20 Prompt</li>
+    <li>٢٥ &nbsp; سكربت Pitch Deck — كيف تبيعي الندوة للنقابة</li>
+    <li>٢٦ &nbsp; ربط الملفات: PDF + عرض الندوة + Pitch</li>
+  </ul>
+</div>
+
+<!-- ==================== 1. بطاقة الندوة ==================== -->
+<div class="section">
+  <h1>١. بطاقة الندوة — ما تقدّمه الجمعية (قيمة $500)</h1>
+  <p>استخدمي هذا القسم لترسيخ قيمتك — في افتتاحك وفي أي تواصل مع الجمعية قبل/بعد.</p>
+
+  <div class="box box-gold">
+    <strong>عنوان الندوة للإعلان:</strong><br/>
+    «مساعد ذكي في حقيبة المعلمة — الذكاء الاصطناعي عملياً: من الفكرة إلى الصف في دقائق»
+  </div>
+
+  <h2>ماذا تحصل الجمعية مقابل $500؟</h2>
+  <table>
+    <tr><th>Deliverable</th><th>التفاصيل</th></tr>
+    <tr><td>ندوة 3 ساعات</td><td>70% تطبيق عملي — 30% توجيه — لا محاضرة تقنية</td></tr>
+    <tr><td>متحدث محترف</td><td>سكript كامل، إدارة قاعة، demo حي، Q&A</td></tr>
+    <tr><td>مخرج لكل معلمة</td><td>درس واحد جاهز + 10 prompts + checklist أمان + خطة 7 أيام</td></tr>
+    <tr><td>مواد مطبوعة/رقمية</td><td>ورقة 10 prompts + checklist + نموذج خطة درس (PDF)</td></tr>
+    <tr><td>استبانة تقييم</td><td>قياس رضا + اقتراحات دورة لاحقة</td></tr>
+    <tr><td>متابعة</td><td>رسالة WhatsApp/email جاهزة بروابط وأمثلة (القسم 18)</td></tr>
+  </table>
+
+  <h2>الوعد للحضور (قلّيه في الدقيقة 2)</h2>
+  <div class="say">«بنهاية 3 ساعات، كل واحدة منكن ستخرج ومعها: <strong>خطة درس واحدة جاهزة</strong> كتبتها بمساعدة AI وراجعتها بيدها، <strong>10 أوامر جاهزة</strong> تنسخها وتستخدمها غداً، و<strong>قواعد أمان</strong> تحميكن وطلابكن. هذا وعد — وليس كلاماً نظرياً.»</div>
+
+  <h2>الجمهور المستهدف</h2>
+  <ul>
+    <li>معلمات رياض أطفال (KG) — 4–6 سنوات</li>
+    <li>معلمات مرحلة أساسية (1–6)</li>
+    <li>معلمات مرحلة ثانوية (اختياري — أمثلة في الدليل)</li>
+    <li>لا خبرة تقنية مطلوبة — هاتف ذكي يكفي</li>
+  </ul>
+
+  <h2>3 رسائل تُحفظ — تكرارها 4 مرات</h2>
+  <table>
+    <tr><th>#</th><th>الرسالة</th><th>متى تكرّرين</th></tr>
+    <tr><td>1</td><td><strong>أنتِ صاحبة القرار</strong> — AI يقترح، أنتِ تقرّrin</td><td>افتتاح، قبل ورشة 1، قبل الأمان، ختام</td></tr>
+    <tr><td>2</td><td><strong>Prompt جيد + مراجعة = توفير ساعات</strong></td><td>قبل demo، قبل ورشة 1، بعد ورشة 2</td></tr>
+    <tr><td>3</td><td><strong>لا بيانات طلاب — أبداً</strong></td><td>افتتاح، بداية كل ورشة، بلوك الأمان</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 2. جدول الـ 180 دقيقة ==================== -->
+<div class="section">
+  <h1>٢. جدول الـ 180 دقيقة — 180 دقيقة (صفحة واحدة — اطبعيها)</h1>
+  <table class="run-show">
+    <tr><th>الوقت</th><th>المدة</th><th>البلوك</th><th>Slide</th><th>نوع</th><th>مخرج</th></tr>
+    <tr class="timeline-row"><td>0:00</td><td>15 د</td><td>افتتاح + rapport + أهداف</td><td>1–4</td><td>تفاعل</td><td>3 إجابات على السبورة</td></tr>
+    <tr><td>0:15</td><td>15 د</td><td>AI مختصر + demo حي</td><td>5–9</td><td>شرح + demo</td><td>«واو» أول — ثقة</td></tr>
+    <tr class="timeline-row"><td>0:30</td><td>45 د</td><td><strong>ورشة 1: أول درس جاهز</strong></td><td>10–12</td><td>hands-on</td><td>خطة درس لكل معلمة</td></tr>
+    <tr><td>1:15</td><td>15 د</td><td>☕ استراحة</td><td>—</td><td>—</td><td>Music خفيف اختياري</td></tr>
+    <tr class="timeline-row"><td>1:30</td><td>35 د</td><td><strong>ورشة 2: تقييم + تmaيز</strong></td><td>13–15</td><td>hands-on</td><td>10 أسئلة + 3 مستويات</td></tr>
+    <tr><td>2:05</td><td>15 د</td><td>Demo سريع KG + مدارس</td><td>16–18</td><td>عرض</td><td>2 أمثلة live</td></tr>
+    <tr class="timeline-row"><td>2:20</td><td>25 د</td><td>أمان + سياق فلسطيني</td><td>19–22</td><td>نقاش</td><td>Checklist موقّعة ذ mentally</td></tr>
+    <tr><td>2:45</td><td>15 د</td><td>خطة 7 أيام + Q&A + تقييم</td><td>23–25</td><td>ختام</td><td>استبانة + photo</td></tr>
+  </table>
+
+  <div class="box-warn box">
+    <strong>قاعدة ذهبية للتوقيت:</strong> إن تأخرتِ — قصّري البلوك 2 (نظري) و<strong>لا</strong> تَقصّري الورش. الندوة تُقاس بما <strong>فعلته</strong> المعلمات لا بما <strong>شرحتِ</strong> أنتِ.
+  </div>
+
+  <h2>توزيع الوقت (رسم)</h2>
+  <pre style="font-family: Tajawal; font-size: 10pt; background: #f5f5f5; padding: 12px; border-radius: 6px;">
+افتتاح      ████░░░░░░░░░░░░░░░░  15 د  (8%)
+نظري+Demo   ████░░░░░░░░░░░░░░░░  15 د  (8%)
+ورشة 1      ████████████░░░░░░░░  45 د  (25%)  ← الأهم
+استراحة    ████░░░░░░░░░░░░░░░░  15 د  (8%)
+ورشة 2      █████████░░░░░░░░░░░  35 د  (19%)
+Demo        ████░░░░░░░░░░░░░░░░  15 د  (8%)
+أمان        ██████░░░░░░░░░░░░░░  25 د  (14%)
+ختام        ████░░░░░░░░░░░░░░░░  15 د  (8%)
+  </pre>
+</div>
+
+<!-- ==================== 3. تحضير ==================== -->
+<div class="section">
+  <h1>٣. تحضير احترافي — من أسبوع قبل إلى لحظة البداية</h1>
+
+  <h2>قبل 7 أيام — تأكيد مع الجمعية</h2>
+  <ul class="checklist">
+    <li>عدد الحضور المتوقع + نسبة KG vs مدارس</li>
+    <li>Wi-Fi: اسم الشبكة + كلمة المرور — أو تأكيد hotspot</li>
+    <li>Projector + HDMI + سبورة</li>
+    <li>طاولات لمجموعات 2–3 (ليس صفوف محاضرة)</li>
+    <li>توقيت: 3 ساعات + 15 د استراحة — تأكيد</li>
+    <li>هل يُوزَّع certificate؟ من يوقّع؟</li>
+    <li>Fee $500 — طريقة الدفع + timing</li>
+  </ul>
+
+  <h2>قبل 48 ساعة</h2>
+  <ul class="checklist">
+    <li>طباعة: جدول الـ 180 دقيقة (1 ص) + 10 Prompts (1 لكل مشاركة) + Checklist (1)</li>
+    <li>تحضير Slides (25) — القسم 16</li>
+    <li>3 screenshots demo احتياطية (إن انقطع Net)</li>
+    <li>QR codes: ChatGPT، Copilot، Canva</li>
+    <li>شاحن + extension + mouse</li>
+    <li>ماء — لكِ وللمنصة</li>
+  </ul>
+
+  <h2>قبل 30 دقيقة — في القاعة</h2>
+  <ul class="checklist">
+    <li>اختبار projector + slide 1</li>
+    <li>اختبار Wi-Fi من 3 نقاط في القاعة</li>
+    <li>ChatGPT مفتوح في tab — prompt demo جاهز</li>
+    <li>ال موسيقى off — الهاتف silent</li>
+    <li>المواد على طاولة عند المدخل</li>
+    <li>سبورة: اكتبي «3 وعود: درس + 10 prompts + أمان»</li>
+  </ul>
+
+  <div class="box-tip box">
+    <strong>طاقة المتحدث:</strong> نامي 7+ ساعات. لا تقري من PDF أمامهم — اعرفي جدول الـ 180 دقيقة. لبسي مريح. ابتسمي في أول 30 ثانية — يحدد أجواء الندوة كلها.
+  </div>
+</div>
+
+<!-- ==================== 4. القاعة ==================== -->
+<div class="section">
+  <h1>٤. إعداد القاعة + المواد + خطة B</h1>
+
+  <h2>ترتيب القاعة الم ideal</h2>
+  <pre style="font-family: Tajawal; font-size: 10pt; background: #f5f5f5; padding: 12px;">
+                    [ PROJECTOR / شاشة ]
+                           │
+              ┌────────────┴────────────┐
+              │      منطقة المتحدث      │
+              └────────────┬────────────┘
+     [طاولة 1]  [طاولة 2]  [طاولة 3]  [طاولة 4]
+       2-3         2-3         2-3         2-3
+     [طاولة 5]  [طاولة 6]  [طاولة 7]  [طاولة 8]
+  </pre>
+  <p>تجنّبي صفوفاً طويلة — المعلمات يحتجن يرى بعض + تشارك شاشات.</p>
+
+  <h2>حقيبة المتحدث — Checklist</h2>
+  <table>
+    <tr><th>ال item</th><th>لماذا</th></tr>
+    <tr><td>Laptop + charger</td><td>Slides + demo</td></tr>
+    <tr><td>HDMI + USB-C adapter</td><td>عرض</td></tr>
+    <tr><td>Hotspot 4G</td><td>backup Wi-Fi</td></tr>
+    <tr><td>50 نسخة ورقة 10 Prompts</td><td>توزيع</td></tr>
+    <tr><td>30 checklist أمان</td><td>توزيع</td></tr>
+    <tr><td>25 استبانة تقييم + أقلام</td><td>نهاية</td></tr>
+    <tr><td>Markers سبورة</td><td>تجميع أفكار</td></tr>
+    <tr><td>Stickers صغيرة (اختياري)</td><td>مكافأة مشاركة — premium touch</td></tr>
+  </table>
+
+  <h2>خطة B — بدون إنترنت</h2>
+  <ol>
+    <li>اعرضي 3 screenshots لنتائج AI محفوظة مسبقاً</li>
+    <li>ورشة «اكتبي الـ Prompt على الورقة» — trial at home</li>
+    <li>زوّجي: من عندها net مع من لا</li>
+    <li>وزّعي PDF prompts — القيمة في التعلّم لا في الاتصال</li>
+    <li>قلّي بصراحة: «الإنترنت ضعيف — سنكتب prompts الآن ونجرب في البيت — والقوالب معكن»</li>
+  </ol>
+</div>
+
+<!-- ==================== 5. BLOK 1 ==================== -->
+<div class="section">
+  <h1>٥. البلوك 1: الافتتاح (0:00 – 0:15)</h1>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:00 – 0:03 | دخول ووقوف</span><span class="slide-ref">Slide 1</span></div>
+    <div class="script-body">
+      <div class="do">[قفي منتصبة — مركز — لا behind podium] [اتصلي بنظر 3 صفوف] [ابتسمي]</div>
+      <div class="say">«السلام عليكم ورحمة الله وبركاته.»</div>
+      <div class="tone">[صوت دافئ — لا hurried] [pause 2 ثوان]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:03 – 0:08 | تعريف + شكر الجمعية</span><span class="slide-ref">Slide 2</span></div>
+    <div class="script-body">
+      <div class="say">«أنا [اسمك الكامل]، [صفة واحدة: م educator / trainer / …]. شكراً لجمعية [الاسم] على دعوتها — وشكراً <strong>لكُن</strong> على حضوركن بعد يوم طويل في الصف. أعرف إن وقتكن ثمين — لذلك اليوم <strong>70% عمل</strong> و30% كلام.»</div>
+      <div class="do">[اشيري للسبورة: «3 وعود»]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:08 – 0:12 | الوعد + 3 رسائل</span><span class="slide-ref">Slide 3</span></div>
+    <div class="script-body">
+      <div class="say">«بنهاية 3 ساعات: (١) خطة <strong>درس واحد جاهز</strong> (٢) <strong>10 أوامر</strong> تنسخينها غداً (٣) <strong>قواعد أمان</strong> تحميكن.»</div>
+      <div class="say">«ثلاث جمل تتذكّrenها: <strong>أنتِ صاحبة القرار</strong>. <strong>Prompt جيد + مراجعة</strong>. <strong>لا بيانات طلاب أبداً</strong>.»</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:12 – 0:15 | استطلاع تفاعلي</span><span class="slide-ref">Slide 4</span></div>
+    <div class="script-body">
+      <div class="say">«ارفعي يدك: مَن جرّبت ChatGPT أو Copilot؟» [عدّ بصوت عالٍ — «15، 20…»]</div>
+      <div class="say">«مَن تحضير الدرس يأخذ أكثر من ساعتين يومياً؟» [غالباً الكل — اضحكي معهم]</div>
+      <div class="say">«اكتبي على ورقة: <strong>شيء واحد</strong> تتمنين AI يساعدك فيه اليوم.» [30 ثانية صمت]</div>
+      <div class="do">[اجمعي 3 إجابات verbally — اكتبي على السبورة — «تحضير، أسئلة، أنشطة KG»]</div>
+      <div class="tone">[transition] «ممتاز — سنلمس كل هذا اليوم.»</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 6. BLOK 2 ==================== -->
+<div class="section">
+  <h1>٦. البلوك 2: AI في 15 دقيقة + Demo (0:15 – 0:30)</h1>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:15 – 0:20 | تعريف بسيط</span><span class="slide-ref">Slide 5–6</span></div>
+    <div class="script-body">
+      <div class="say">«AI — مثل ChatGPT — برنامج يتنبأ بالكلمات التالية. يكتب، يقترح، يلخّص. <strong>ليس</strong> معلمة. <strong>قد يخطئ</strong>. <strong>لا يعرف</strong> طلابك.»</div>
+      <div class="say">«الفرق عن Google: Google ي find صفحات. ChatGPT <strong>يكتب</strong> لكِ جديداً — خطط، أسئلة، قصص.»</div>
+      <div class="do">[Slide 6: جدول Google vs ChatGPT vs Canva — 30 ثانية]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:20 – 0:28 | Demo حي #1 — أمام الجميع</span><span class="slide-ref">Slide 7–8</span></div>
+    <div class="script-body">
+      <div class="say">«الآن — live — لا recording. سأكتب prompt أمامكن.»</div>
+      <div class="do">[افتحي ChatGPT — اكتبي ببطء — يقرأن معك]</div>
+      <div class="prompt">أنت مساعدة لمعلمة رياض أطفال في فلسطين.
+اقترحي: قصة 4 دقائق عن التعاون لأطفال 5 سنوات + 3 أسئلة شفوية + لعبة حركية 8 دقائق بدون مواد.
+اللغة: عربية بسيطة.</div>
+      <div class="tone">[while loading] «انتظرna 10 ثوان…»</div>
+      <div class="say">«شوفوا — في أقل من دقيقة. <strong>لكن</strong> — هل أنسب لصفي؟ هل أعدّل؟ <strong>نعم دائماً</strong>.»</div>
+      <div class="do">[اقرئي فقرة واحدة من النتيجة — ثم] «سأغيّر كلمة — أضيف سياق فلسطيني — هذا دوري.»</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>0:28 – 0:30 | الجسر للورشة</span><span class="slide-ref">Slide 9</span></div>
+    <div class="script-body">
+      <div class="say">«الآن <strong>دوركن</strong>. ورشة 45 دقيقة — كل واحدة تخرج بدرس. افتحي ChatGPT أو Copilot. من لا net — اقعدي مع زميلة.»</div>
+      <div class="do">[Slide 9: القالب الذهبي — overview — «التفصيل في الورقة»]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 7. WORKSHOP 1 ==================== -->
+<div class="section">
+  <h1>٧. البلوك 3: ورشة «أول درس جاهز» (0:30 – 1:15)</h1>
+  <p><strong>هذه الورشة = 40% قيمة الندوة.</strong> تجولي بين الطاولات — لا تقفي خلف المنصة.</p>
+
+  <table>
+    <tr><th>الوقت</th><th>الخطوة</th><th>ما تقولين</th></tr>
+    <tr><td>0:30–0:35</td><td>شرح القالب</td><td>«5 عناصر: دور، هدف، طلاب، قيود، مخرجات» — Slide 10</td></tr>
+    <tr><td>0:35–0:40</td><td>اختيار موضوع</td><td>«موضوع من <strong>الأسبوع القادم</strong> — حقيقي — ليس theoretical»</td></tr>
+    <tr><td>0:40–1:00</td><td>كتابة + تشغيل</td><td>صمت عمل — تجولي — ساعدي</td></tr>
+    <tr><td>1:00–1:08</td><td>3 أسئلة مراجعة</td><td>Checklist على Slide 11</td></tr>
+    <tr><td>1:08–1:15</td><td>مشاركة 2–3</td><td>«مَن ت volunteered — 2 دقيقة»</td></tr>
+  </table>
+
+  <h2>القالب — اعرضيه على الشاشة (Slide 10)</h2>
+  <div class="prompt">الدور: أنت مساعد/ة لمعلمة [KG / الصف ___ / مادة ___].
+الهدف: خطة درس [___] دقيقة عن [الموضوع].
+الطلاب: [العمر / العدد / المستوى].
+القيود: عربي مبسّط | فلسطين | [بدون أجهزة / سبورة فقط].
+المخرجات:
+1. ثلاثة أهداف SMART
+2. خطوات الدرس بالدقائق
+3. نشاط تفاعلي واحد
+4. 5 أسئلة تقييم
+5. فكرة واجب أو extension
+لا أسماء طلاب.</div>
+
+  <h2>أمثلة Prompt جاهزة للورشة — KG</h2>
+  <div class="prompt">خطة 30 دقيقة لتعليم حرف (ت) لـ 20 طفل KG — قصة + نشاط حسّي + تلوين — فصل واحد بدون copier.</div>
+  <div class="prompt">درس 25 د عن الألوان Primary — أحمر أزرق أصفر — ألعاب فرز + أغنية قصيرة.</div>
+
+  <h2>أمثلة Prompt جاهزة — مدارس</h2>
+  <div class="prompt">خطة 45 دقيقة عن الكسور العشرية للصف الخامس — 28 طالب — سبورة فقط — 3 أهداف + نشاط جماعي + 8 MCQ.</div>
+  <div class="prompt">درس 40 د عن دورة الماء للصف الرابع علوم — تجربة بمواد منزلية + 5 أسئلة فهم.</div>
+  <div class="prompt">درس تربية وطنية للصف الثالث عن [التراث الفلسطيني — الزيتون] — 45 د — أنشطة — سأراجع المحتوى.</div>
+
+  <h2>while تجولين — جمل مساعدة</h2>
+  <ul>
+    <li>«حدّدي المخرجات — ماذا تريدين بالضبط؟»</li>
+    <li>«أضيفي عدد الطلاب والوقت»</li>
+    <li>«Prompt ضعيف = نتيجة ضعيفة — عدّلي و أرسلي again»</li>
+    <li>«انسخي ل Word — لا تعتمدي على chat فقط»</li>
+  </ul>
+
+  <h2>Slide 11 — Checklist المراجعة (على الشاشة 1:00)</h2>
+  <div class="box">
+    <ol>
+      <li>☐ هل يناسب <strong>عمر</strong> طلابي؟</li>
+      <li>☐ هل <strong>صحيح</strong> منهاجياً؟ (راجعت؟)</li>
+      <li>☐ هل <strong>واقعي</strong> في وقتي وموارد صفي؟</li>
+    </ol>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>1:08 – 1:15 | مشاركات</span><span class="slide-ref">Slide 12</span></div>
+    <div class="script-body">
+      <div class="say">«مَن ت volunteered تقرأ <strong>هدفاً واحداً</strong> + <strong>نشاطاً واحداً</strong> — 90 ثانية.»</div>
+      <div class="tone">[after each] «ممتاز — لاحظوا كيف <strong>عدّلت</strong> بعد AI — هذا professional.»</div>
+      <div class="say">«احفظi الدرس — نكمل بعد الاستراحة. <strong>15 دقيقة</strong> — regroup.»</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 8. BREAK ==================== -->
+<div class="section">
+  <h1>٨. الاستراحة (1:15 – 1:30)</h1>
+  <div class="do">[Slide: «استراحة — 15 د — ارجعي بـ prompt في بالك»]</div>
+  <ul>
+    <li>أنتِ: ماء، breath، راجعي جدول الـ 180 دقيقة</li>
+    <li>شجّعي من يخرج — لا ت cut break (يبني energy)</li>
+    <li>1:28 — «دقيقتان» verbally</li>
+    <li>1:30 — Slide 13 + music off</li>
+  </ul>
+</div>
+
+<!-- ==================== 9. WORKSHOP 2 ==================== -->
+<div class="section">
+  <h1>٩. البلوك 4: ورشة «تقييم + تmaيز» (1:30 – 2:05)</h1>
+
+  <div class="script-block">
+    <div class="script-header"><span>1:30 – 1:33 | recap سريع</span><span class="slide-ref">Slide 13</span></div>
+    <div class="script-body">
+      <div class="say">«رجعna — مَن finished درس؟ [أيد] ممتاز. الآن: <strong>10 أسئلة</strong> + <strong>3 مستويات</strong> لنفس الموضوع — 35 دقيقة.»</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>الوقت</th><th>المهمة</th><th>Prompt</th></tr>
+    <tr><td>1:33–1:50</td><td>10 MCQ</td><td>انظري Prompt #A أدناه</td></tr>
+    <tr><td>1:50–2:02</td><td>تmaيز 3 مستويات</td><td>Prompt #B</td></tr>
+    <tr><td>2:02–2:05</td><td>pair share</td><td>«قارني مع زميلة»</td></tr>
+  </table>
+
+  <h3>Prompt #A — MCQ</h3>
+  <div class="prompt">اكتب 10 أسئلة اختيار من متعدد عن [نفس موضوع الدرس] للصف [___].
+3 سهلة، 4 متوسطة، 3 صعبة.
+4 خيارات لكل سؤال + مفتاح إجابة + جملة explain للإجابة الصحيحة.
+عربي — مدارس فلسطين.</div>
+
+  <h3>Prompt #B — تmaيز</h3>
+  <div class="prompt">حوّل درس [الموضوع] للصف [___] إلى 3 نسخ:
+- متفوقون: تحدّي إضافي
+- مستوى أساسي: الدرس standard
+- يحتاجون دعم: مبسّط + أمثلة extra + خطوات أصغر
+نفس الهدف التعليمي — جدول comparison.</div>
+
+  <div class="box-tip box">
+    <strong>KG track:</strong> بدل MCQ — «5 أسئلة شفوية + 3 أنشطة مختلفة المستوى».<br/>
+    <strong>Prompt KG:</strong> «3 نسخ لنشاط حرف (ب): advanced / basic / support — KG 5 سنوات»
+  </div>
+</div>
+
+<!-- ==================== 10. DEMO BLOCK ==================== -->
+<div class="section">
+  <h1>١٠. البلوك 5: Demo سريع KG + مدارس (2:05 – 2:20)</h1>
+  <p>عرضان live — 7 د each — ي renew enthusiasm قبل الأمان.</p>
+
+  <h2>Demo #2 — KG (2:05 – 2:12)</h2>
+  <div class="prompt">قصة 3 دقائق عن الطفل الذي shares toys — KG — + 5 حركات جسد children يقلدونها + 4 أسئلة.</div>
+  <div class="say">«معلمات KG — هذا template — غيّri [shares] ل أي value.»</div>
+
+  <h2>Demo #3 — مدارس (2:12 – 2:20)</h2>
+  <div class="prompt">رسالة WhatsApp مهذبة لأولياء الصف الخامس — دعوة اجتماع يوم الخميس 10 ص — موضوع: نتائج الفصل — 80 كلمة max.</div>
+  <div class="say">«لا names طلاب — قالب عام — تعدّlin قبل send.»</div>
+
+  <h2>مخرج نموذجي (إن لم يعمل Net — اقرئيه)</h2>
+  <div class="output">السلام عليكم أولياء الأمور الأكرم،
+ندعوكم لاجتماع الصف الخامس يوم الخميس الساعة 10:00 صباحاً في قاعة المدرسة، لمناقشة مستوى أبنائنا وخطط الفصل القادم. حضوركم يهمنا. شكراً لتعاونكم.
+[اسم المعلمة / المدرسة]</div>
+</div>
+
+<!-- ==================== 11. SAFETY ==================== -->
+<div class="section">
+  <h1>١١. البلوك 6: الأمان والسياق الفلسطيني (2:20 – 2:45)</h1>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:20 – 2:30 | قواعد حمراء</span><span class="slide-ref">Slide 19</span></div>
+    <div class="script-body">
+      <div class="say">«قبل الختام — <strong>أهم</strong> من أي prompt: <strong>الأمان</strong>.»</div>
+      <div class="say">«❌ لا أسماء. ❌ لا صور طلاب. ❌ لا علامات. ❌ لا تقارير طبية/نفسية.»</div>
+      <div class="say">«✅ خطط عامة. ✅ أسئلة. ✅ قوالب. ✅ «طالب في الصف الرابع» — ليس «محمد».»</div>
+      <div class="tone">[pause — let sink in]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:30 – 2:40 | سياق فلسطيني</span><span class="slide-ref">Slide 20–21</span></div>
+    <div class="script-body">
+      <div class="say">«في <strong>التاريخ، الجغرافيا، التربية الوطنية، الدين</strong> — AI قد يخطئ أو ي neutralize بما لا يناسبنا. <strong>أنتِ</strong> المرجع. راجعي. عدّli. ارفضi.»</div>
+      <div class="say">«اطلبي: «أ examples من البيئة الفلسطينية» — «عدّli للمنهاج الفلسطيني».»</div>
+      <div class="do">[Slide 21: مثال خطأ محتمل + تصحيح — 1 دقيقة]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:40 – 2:45 | متى NO AI</span><span class="slide-ref">Slide 22</span></div>
+    <div class="script-body">
+      <div class="say">«لا AI في: قرارات انضباط. تقييم نfinal بدون review. رسائل sensitive لولي عن طفل واحد.»</div>
+      <div class="do">[وزّعي checklist أمان — «احفظi في حقيبة»]</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>المجال</th><th>الخطر</th><th>إجراءك</th></tr>
+    <tr><td>تاريخ فلسطين</td><td>صياغة محايدة/خاطئة</td><td>تحقق — منهاج — مصادر</td></tr>
+    <tr><td>جغرافيا</td><td>أسماء قديمة</td><td>راجعي maps منهاج</td></tr>
+    <tr><td>دين</td><td>أخطاء</td><td>مراجعة مختص</td></tr>
+    <tr><td>صور AI</td><td>حساسية</td><td>لا simulate أطفال real</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 11B. UNION ==================== -->
+<div class="section">
+  <h1>١١-ب. البلوك 6 (تكملة): AI والعمل النقابي — سكربت + Prompts</h1>
+  <p><strong>الموقع في الندوة:</strong> 2:30 – 2:42 (ضمن بلوك الأمان 2:20–2:45) | <span class="slide-ref">Slides 19–21</span></p>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:30 – 2:42 | العمل النقابي</span></div>
+    <div class="script-body">
+      <div class="say">«قسم خاص لكنّ كعضوات في <strong>نقابة المعلمات</strong> و<strong>رياض الأطفال</strong> — AI ليس للصف فقط. يساعد <strong>النقابة</strong> في التنظيم إذا استُخدم بذكاء.»</div>
+      <div class="say">«مسودات بيانات — أجندات اجتماعات — نشرات للأعضاء — أفكار ورش — كلها <strong>مسودات</strong>. القرار والتوقيع والنشر — <strong>للقيادة النقابية</strong>.»</div>
+      <div class="do">[اعرضي Slide «AI والعمل النقابي» — 3 دقائق]</div>
+      <div class="say">«مثال: «اكتبي مسودة بيان عن أهمية التحضير الجيد» — تراجعي الأمانة — تعدّلي — ثم تنشروا. وفّرتِ ساعتين.»</div>
+      <div class="box-warn box" style="margin-top:8px">
+        <strong>تحذير للمتحدث:</strong> لا تدخلي في سياسات النقابة أو خلافات. ابقي على «أداة تنظيم وتواصل». لا أسماء أعضاء في الـ demo.
+      </div>
+    </div>
+  </div>
+
+  <h2>أين يفيد AI النقابة؟ (جدول للشرح)</h2>
+  <table>
+    <tr><th>مجال العمل النقابي</th><th>استخدام AI</th><th>ما يبقى بشرياً</th></tr>
+    <tr>
+      <td>التواصل مع الأعضاء</td>
+      <td>مسودات نشرات، دعوات اجتماع، تلخيص نقاط</td>
+      <td>الموافقة، النبرة الرسمية، النشر</td>
+    </tr>
+    <tr>
+      <td>التدريب والتطوير</td>
+      <td>أجندة ندوات، أفكار ورش، مواد KG</td>
+      <td>اختيار المحتوى، الإلقاء، التقييم</td>
+    </tr>
+    <tr>
+      <td>الدعوة والمناصرة</td>
+      <td>مسودة بيانات، خطابات، نقاط إعلامية</td>
+      <td>المراجعة القانونية/السياسية، التوقيع</td>
+    </tr>
+    <tr>
+      <td>تنظيم الفعاليات</td>
+      <td>checklists، جداول، رسائل شكر</td>
+      <td>التنفيذ الميداني، الحضور</td>
+    </tr>
+    <tr>
+      <td>دعم معلمات KG</td>
+      <td>بنك أنشطة وقصص — توزيع على الأعضاء</td>
+      <td>التطبيق في الروضة، السلامة</td>
+    </tr>
+    <tr>
+      <td>اجتماعات الأمانة</td>
+      <td>أجندة + محضر من نقاط عامة</td>
+      <td>القرارات، التصويت، الأسرار</td>
+    </tr>
+  </table>
+
+  <h2>20 Prompt جاهز — العمل النقابي</h2>
+
+  <h3>بيانات ومناصرة (1–5)</h3>
+  <div class="prompt">1. مسودة بيان صحفي (150 كلمة) عن [أهمية استقلالية المنهاج / ظروف المعلمات] — لغة رسمية مهذبة — للمراجعة قبل النشر.</div>
+  <div class="prompt">2. 5 نقاط إعلامية (talking points) لمسؤولة نقابية عن [موضوع تعليمي] — جمل قصيرة.</div>
+  <div class="prompt">3. خطاب رسمي لجهة رسمية — طلب [اجتماع / دعم / مرافقة] — قالب عام.</div>
+  <div class="prompt">4. ملخص بلغة بسيطة لقرار أو موقف نقابي — للأعضاء غير المتخصصات.</div>
+  <div class="prompt">5. أسئلة وأجوبة متوقعة (FAQ) عن [موضوع نقابي تعليمي] — 8 أسئلة.</div>
+
+  <h3>اجتماعات وتنظيم (6–10)</h3>
+  <div class="prompt">6. أجندة اجتماع نقابي 90 دقيقة — 5 بنود — ترتيب زمني.</div>
+  <div class="prompt">7. محضر اجتماع من هذه النقاط: [___، ___، ___] — فقرات رسمية — بدون أسماء.</div>
+  <div class="prompt">8. checklist تنظيم فعالية نقابية — 20 بنداً — من التحضير للختام.</div>
+  <div class="prompt">9. جدول زمني يوم مؤتمر معلمات — 3 جلسات + استراحات.</div>
+  <div class="prompt">10. رسالة شكر رسمية للمتطوعات بعد فعالية — 100 كلمة.</div>
+
+  <h3>تواصل الأعضاء (11–15)</h3>
+  <div class="prompt">11. نشرة أسبوعية لأعضاء النقابة — أخبار + تذكير + فقرة تعليمية — 250 كلمة.</div>
+  <div class="prompt">12. دعوة WhatsApp لاجتماع عام — تاريخ ووقت ومكان — مهذبة.</div>
+  <div class="prompt">13. تذكير بالتسجيل في ورشة — 3 أسطر.</div>
+  <div class="prompt">14. استبيان رضا عن فعالية نقابية — 10 أسئلة — للطباعة.</div>
+  <div class="prompt">15. ملخص ورشة للأعضاء اللواتي لم يحضرن — 5 نقاط.</div>
+
+  <h3>تدريب وأعضاء KG (16–20)</h3>
+  <div class="prompt">16. خطة ورشة 3 ساعات «AI للمعلمات» — أجندة مفصّلة — مثل هذه الندوة.</div>
+  <div class="prompt">17. 10 أفكار ورش قصيرة (ساعة) لعضوات KG — مواضيع تربوية.</div>
+  <div class="prompt">18. حزمة أنشطة KG شهرية — 4 أسابيع outline — للتوزيع على الأعضاء.</div>
+  <div class="prompt">19. دليل سريع «أول 5 Prompts لعضوة نقابية جديدة» — صفحة واحدة.</div>
+  <div class="prompt">20. مقترح برنامج سنوي للنقابة — 6 فعاليات تدريب — عناوين وأهداف.</div>
+
+  <h2>قواعد أمان — نقابية (قلّيها حرفياً)</h2>
+  <ul>
+    <li>لا أسماء أعضاء ولا شكاوى شخصية في AI عام</li>
+    <li>لا مسودات قانونية نهائية — مراجعة مختص</li>
+    <li>البيانات الرسمية — قرار الأمانة قبل النشر</li>
+    <li>لا تسريب محاضر سرية — AI لا يحل محل السرية المهنية</li>
+  </ul>
+</div>
+
+<!-- ==================== 12. CLOSING ==================== -->
+<div class="section">
+  <h1>١٢. البلوك 7: الختام (2:45 – 3:00)</h1>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:45 – 2:52 | خطة 7 أيام</span><span class="slide-ref">Slide 23</span></div>
+    <div class="script-body">
+      <div class="say">«اكتبي <strong>خطة 7 أيام</strong>:»</div>
+      <div class="do">[Slide 23 — اقرئي]</div>
+      <ul>
+        <li>اليوم 1–2: استخدمي 3 prompts من ورقتكن</li>
+        <li>اليوم 3–4: درس كامل + مراجعة</li>
+        <li>اليوم 5: شاركي زميلة واحدة</li>
+        <li>اليوم 6–7: eval — وفرّti وقت؟</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:52 – 2:58 | Q&A</span><span class="slide-ref">Slide 24</span></div>
+    <div class="script-body">
+      <div class="say">«سؤالان فقط — من has؟»</div>
+      <div class="tone">[استخدمي القسم 17 — لا invent]</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><span>2:58 – 3:00 | Closing emotional</span><span class="slide-ref">Slide 25</span></div>
+    <div class="script-body">
+      <div class="say">«خرجتُن بـ: درس، prompts، checklist. AI في <strong>حقيبة</strong> المعلمة — <strong>أنتن</strong> من يقرّr. شكراً لجمعية [___]. وشكراً لكنّ — <strong>معلمات فلسطين</strong> — على ما تقدّmون every day.»</div>
+      <div class="do">[استبانة at exit — photo optional — thank organizer]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 13. PROMPT RULES ==================== -->
+<div class="section">
+  <h1>١٣. القالب الذهبي + 10 قواعد Prompt</h1>
+  <div class="prompt">الدور: أنت مساعد/ة لمعلمة [___].
+الهدف: [___].
+الطلاب: [___].
+القيود: [لغة | م place | موارد | وقت].
+المخرجات: [1. 2. 3. …].
+قيود أمان: لا أسماء طلاب.</div>
+
+  <table>
+    <tr><th>#</th><th>القاعدة</th><th>سيء → جيد</th></tr>
+    <tr><td>1</td><td>Specific</td><td>«درس» → «45 د كسور صف خامس»</td></tr>
+    <tr><td>2</td><td>Outputs listed</td><td>«ساعدني» → «5 MCQ + rubric»</td></tr>
+    <tr><td>3</td><td>Constraints</td><td>«30 طالب، no print»</td></tr>
+    <tr><td>4</td><td>Role</td><td>«أنت مساعد KG فلسطين»</td></tr>
+    <tr><td>5</td><td>Iterate</td><td>«بسّطي» «أ harder» «fلسطيني»</td></tr>
+    <tr><td>6</td><td>One task</td><td>لا 10 requests in one</td></tr>
+    <tr><td>7</td><td>Format</td><td>«جدول» «numbered list»</td></tr>
+    <tr><td>8</td><td>Level</td><td>«Bloom: تحليل»</td></tr>
+    <tr><td>9</td><td>Review flag</td><td>«سأراجع factual»</td></tr>
+    <tr><td>10</td><td>Save</td><td>Word/Google — not chat only</td></tr>
+  </table>
+
+  <h2>Follow-up phrases — احفظيها</h2>
+  <ul>
+    <li>«بسّطي للصف الثاني»</li>
+    <li>«أ examples من فلسطين»</li>
+    <li>«بدون إنترنت في الصف»</li>
+    <li>«قصّري ل 30 دقيقة»</li>
+    <li>«حوّلي لنشاط حركي»</li>
+    <li>«أضيفي 5 أسئلة»</li>
+  </ul>
+</div>
+
+<!-- ==================== 14. 80 PROMPTS ==================== -->
+<div class="section">
+  <h1>١٤. 80 Prompt جاهز — مدارس (1–50) + KG (51–80)</h1>
+  <p><em>استخدمي 8–10 في الندوة — الباقي للتوزيع والم follow-up.</em></p>
+
+  <h2>مدارس — تحضير (1–15)</h2>
+  <div class="prompt">1. خطة درس 45 د عن [___] صف [___] — SMART + timing + نشاط + 5 أسئلة.</div>
+  <div class="prompt">2. 3 طرق intro جذابة 5 د لدرس [___].</div>
+  <div class="prompt">3. نشاط جماعي 20 د — 30 طالب — [___] — مواد cheap.</div>
+  <div class="prompt">4. 10 MCQ — 3 easy 4 med 3 hard — [___] + key.</div>
+  <div class="prompt">5. 5 essay questions + rubric 10 marks — [___].</div>
+  <div class="prompt">6. 3 مستويات تmaيز — [___] — جدول.</div>
+  <div class="prompt">7. 5 strategies دعم يومي 10 د — [مهارة].</div>
+  <div class="prompt">8. 3 enrichment — [___] — متفوقين.</div>
+  <div class="prompt">9. شرح [مفهوم] 200 كلمة — أمثلة فلسطين.</div>
+  <div class="prompt">10. Concept map نصي — [___].</div>
+  <div class="prompt">11. 3 واجبات — varied — no internet.</div>
+  <div class="prompt">12. مراجعة 30 د pre-exam — [___].</div>
+  <div class="prompt">13. مشروع 2–3 weeks — [___] + rubric.</div>
+  <div class="prompt">14. 5 أفكار معرض صفي — [___].</div>
+  <div class="prompt">15. Rubric 4×4 — [عرض/مقال].</div>
+
+  <h2>مدارس — تواصل وإدارة (16–30)</h2>
+  <div class="prompt">16. 3 جمل feedback بنّاء — [مهارة] — template.</div>
+  <div class="prompt">17. WhatsApp أولياء — اجتماع — [تاريخ].</div>
+  <div class="prompt">18. فقرة end-term شكر أهل — general.</div>
+  <div class="prompt">19. قالب تقرير 4 فقرات — placeholders.</div>
+  <div class="prompt">20. 5 morning routines — صف [___].</div>
+  <div class="prompt">21. 3 أنشطة emergency 15 د — no prep.</div>
+  <div class="prompt">22. Bingo review — [___] — 24 خانة.</div>
+  <div class="prompt">23. 20 flashcards — [___].</div>
+  <div class="prompt">24. خطة أسبوع 5×45 — [unit].</div>
+  <div class="prompt">25. 3 أمثلة فلسطينية — [مconcept].</div>
+  <div class="prompt">26. أنشطة تربية وطنية — [___] — للreview.</div>
+  <div class="prompt">27. دمج critical thinking — [درس].</div>
+  <div class="prompt">28. STEM project — مواد منزل — [___].</div>
+  <div class="prompt">29. نص قراءة 150 كلمة + 5 comp — [___].</div>
+  <div class="prompt">30. 3 creative writing prompts — [___].</div>
+
+  <h2>مدارس — مواد محددة (31–50)</h2>
+  <div class="prompt">31. 10 word problems رياضيات — سياق فلسطيني.</div>
+  <div class="prompt">32. تجربة علوم — [___] — steps.</div>
+  <div class="prompt">33. 15 English vocab + activity — [topic].</div>
+  <div class="prompt">34. Timeline 8 points — [history] — verify.</div>
+  <div class="prompt">35. 5 geography questions + map activity.</div>
+  <div class="prompt">36. Digital literacy 40 د — no 1:1 devices.</div>
+  <div class="prompt">37. 3 art activities — [___].</div>
+  <div class="prompt">38. PE game 15 د — 30 students.</div>
+  <div class="prompt">39. نشيد تعليمي — [___].</div>
+  <div class="prompt">40. أنشطة values — [___] — review.</div>
+  <div class="prompt">41. امتحان 45 د — 20 MCQ + 3 essay.</div>
+  <div class="prompt">42. تحليل نتائج — template — no names.</div>
+  <div class="prompt">43. ورشة أهل 60 د — [قراءة/رياضيات].</div>
+  <div class="prompt">44. Substitute day plan — 5 periods.</div>
+  <div class="prompt">45. 3 project paths by interest — [___].</div>
+  <div class="prompt">46. 10 Socratic questions — [___].</div>
+  <div class="prompt">47. 5 exit ticket ideas — [___].</div>
+  <div class="prompt">48. 5 bell ringers — [___].</div>
+  <div class="prompt">49. Cross-curricular — science+math — [___].</div>
+  <div class="prompt">50. 10 self-reflection questions — post-lesson.</div>
+
+  <h2>رياض الأطفال (51–80)</h2>
+  <div class="prompt">51. قصة 5 د [value] + 3 questions — age 5–6.</div>
+  <div class="prompt">52. قصة + body movements — [animals/colors].</div>
+  <div class="prompt">53. لعبة 10 د — [letter/number] — 20 kids — no equipment.</div>
+  <div class="prompt">54. Circle time 15 د — routine.</div>
+  <div class="prompt">55. 10 activities flashcards letter [ب].</div>
+  <div class="prompt">56. 5 games number [5] — sensory.</div>
+  <div class="prompt">57. Color [red] 20 د — story sort craft.</div>
+  <div class="prompt">58. Shapes triangle circle — 3 daily.</div>
+  <div class="prompt">59. Gross motor 10 د — playground.</div>
+  <div class="prompt">60. Fine motor — cut paste — 15 د.</div>
+  <div class="prompt">61. Sharing activity — role play 15 د.</div>
+  <div class="prompt">62. Feelings lesson 20 د — faces draw.</div>
+  <div class="prompt">63. Season [winter] — 4 stations.</div>
+  <div class="prompt">64. Animals week — 5-day outline.</div>
+  <div class="prompt">65. Healthy food 25 د — sort game.</div>
+  <div class="prompt">66. Handwashing story + song 15 د.</div>
+  <div class="prompt">67. My family — draw share — inclusive.</div>
+  <div class="prompt">68. Community helpers — dramatic 20 د.</div>
+  <div class="prompt">69. Finger paint 3 ideas — easy clean.</div>
+  <div class="prompt">70. Rhythm 10 د — clap stomp pattern.</div>
+  <div class="prompt">71. Story retell — [known tale] — sequence.</div>
+  <div class="prompt">72. First sound game — letter [س].</div>
+  <div class="prompt">73. Counting collections to 10 — 15 د.</div>
+  <div class="prompt">74. 5 transition songs — short calm.</div>
+  <div class="prompt">75. Quiet time 10 د — post recess.</div>
+  <div class="prompt">76. Outdoor nature checklist — garden.</div>
+  <div class="prompt">77. Home activity parent+child — letter.</div>
+  <div class="prompt">78. Observation checklist — [skill] — 8 items.</div>
+  <div class="prompt">79. Class celebration 15 د — inclusive.</div>
+  <div class="prompt">80. Substitute KG full day outline.</div>
+</div>
+
+<!-- ==================== 15. EXAMPLES ==================== -->
+<div class="section">
+  <h1>١٥. 8 أمثلة كاملة — Before/After + مخرجات</h1>
+
+  <h2>مثال 1: Prompt ضعيف → قوي (درس علوم)</h2>
+  <p><strong>❌ ضعيف:</strong> «اعطini درس عن الماء»</p>
+  <p><strong>✅ قوي:</strong></p>
+  <div class="prompt">خطة 40 دقيقة عن دورة الماء للصف الرابع — 26 طالب — سبورة + كوب ماء فقط — 3 SMART goals + demo 10 د + 5 أسئلة — عربي فلسطين.</div>
+  <p><strong>م excerpt م output:</strong></p>
+  <div class="output">الهدف 1: يسمّي الطالب مراحل دورة الماء (تبخر، تكاثف، هطول).
+المقدمة (8 د): عرض كوب ماء — «من أين جاء؟»
+النشاط (15 د): رسم دورة على السبورة collectively…</div>
+
+  <h2>مثال 2: KG — حرف الباء</h2>
+  <div class="prompt">20 طفل KG — 30 د — حرف (ب) — قصة + sensory «ابحث عن باء» + worksheet وصف.</div>
+  <div class="output">قصة: «بَقرةُ بَسمة» — 3 د — الباء في بَقرة، بَيت، بَحر…
+نشاط: children bring objects starting with ب…</div>
+
+  <h2>مثال 3: MCQ رياضيات</h2>
+  <div class="prompt">10 MCQ كسور — صف خامس — 3+4+3 difficulty — مع key.</div>
+
+  <h2>مثال 4: تmaيز</h2>
+  <div class="prompt">درس «الضمائر» — صف سادس — 3 versions table.</div>
+
+  <h2>مثال 5: رسالة أولياء</h2>
+  <div class="prompt">WhatsApp — اجتماع — 80 كلمة — مهذب — no student names.</div>
+
+  <h2>مثال 6: تربية وطنية — زيتون</h2>
+  <div class="prompt">45 د — صف ثالث — الزيتون في التراث الفلسطيني — أنشطة — «سأراجع».</div>
+  <div class="box-warn box">راجعي output — AI قد ي omit sensitivities — <strong>أنتِ</strong> final.</div>
+
+  <h2>مثال 7: Emergency no prep</h2>
+  <div class="prompt">3 activities 15 د each — [any subject] — no materials — 35 students.</div>
+
+  <h2>مثال 8: Follow-up chain</h2>
+  <p>Prompt 1 → output → «بسّطي» → «أ examples نابلس» → «قصّري 30 د» — اعرضي chain live في Demo.</p>
+</div>
+
+<!-- ==================== 16. SLIDES ==================== -->
+<div class="section">
+  <h1>١٦. 25 شريحة — محتوى كل Slide</h1>
+  <table>
+    <tr><th>#</th><th>العنوان</th><th>المحتوى</th></tr>
+    <tr><td>1</td><td>Title</td><td>مساعد ذكي في حقيبة المعلمة | جمعية [___] | [تاريخ]</td></tr>
+    <tr><td>2</td><td>المتحدث</td><td>اسم + صورة + سطر واحد</td></tr>
+    <tr><td>3</td><td>3 وعود</td><td>درس + 10 prompts + أمان</td></tr>
+    <tr><td>4</td><td>استطلاع</td><td>3 أسئلة — رفع يد</td></tr>
+    <tr><td>5</td><td>ما هو AI؟</td><td>3 bullets — ليس معلمة / may error / no student data</td></tr>
+    <tr><td>6</td><td>Google vs ChatGPT</td><td>جدول 3 columns</td></tr>
+    <tr><td>7</td><td>Demo</td><td>«Live now» — screenshot backup</td></tr>
+    <tr><td>8</td><td>نتيجة Demo</td><td>قبل/بعد edit</td></tr>
+    <tr><td>9</td><td>→ ورشة 1</td><td>القالب الذهبي overview</td></tr>
+    <tr><td>10</td><td>القالب كامل</td><td>5 elements — large font</td></tr>
+    <tr><td>11</td><td>Checklist</td><td>3 questions مراجعة</td></tr>
+    <tr><td>12</td><td>مشاركات</td><td>«مَن ت share؟»</td></tr>
+    <tr><td>13</td><td>Post-break</td><td>ورشة 2 — MCQ + تmaيز</td></tr>
+    <tr><td>14</td><td>Prompt MCQ</td><td>template on screen</td></tr>
+    <tr><td>15</td><td>Prompt تmaيز</td><td>template</td></tr>
+    <tr><td>16</td><td>Demo KG</td><td>قصة + حركة</td></tr>
+    <tr><td>17</td><td>Demo مدارس</td><td>رسالة أولياء</td></tr>
+    <tr><td>18</td><td>Canva (optional)</td><td>بطاقات — 30 sec</td></tr>
+    <tr><td>19</td><td>أمان ❌✅</td><td>red green lists</td></tr>
+    <tr><td>20</td><td>فلسطين</td><td>review history/geo/religion</td></tr>
+    <tr><td>21</td><td>مثال خطأ</td><td>before/after correction</td></tr>
+    <tr><td>22</td><td>متى NO AI</td><td>4 bullets</td></tr>
+    <tr><td>23</td><td>خطة 7 أيام</td><td>4 lines</td></tr>
+    <tr><td>24</td><td>Q&A</td><td>«أسئلتكن؟»</td></tr>
+    <tr><td>25</td><td>شكر</td><td>جمعية + معلمات فلسطين + contact</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 17. FAQ ==================== -->
+<div class="section">
+  <h1>١٧. 15 سؤالاً — إجابات حرفية للQ&A</h1>
+
+  <h3>1. «AI غش للطلاب؟»</h3>
+  <div class="say">«AI للمعلمة في التحضير — like كتاب. للطلاب: نسخ without فهم = غش. بإشراف = تعلّم. المدرسة need policy.»</div>
+
+  <h3>2. «يحل محلي؟»</h3>
+  <div class="say">«No — يختصر تحضير من ساعتين لـ 30 د sometimes. أنتِ ت add soul + know students.»</div>
+
+  <h3>3. «Net ضعيف»</h3>
+  <div class="say">«Prompts on paper — try home. Save good outputs Word. Bank شخصي.»</div>
+
+  <h3>4. «ChatGPT vs Copilot؟»</h3>
+  <div class="say">«Pick one — master it. Copilot if Microsoft school. Gemini if Google.»</div>
+
+  <h3>5. «بياناتي آمنة؟»</h3>
+  <div class="say">«Free tier may train on chats — no sensitive data. General prep OK.»</div>
+
+  <h3>6. «AI wrong about Palestine»</h3>
+  <div class="say">«Yes happens — YOU final reference — especially history geography.»</div>
+
+  <h3>7. «منع غش طلاب»</h3>
+  <div class="say">«In-class exams, oral, process projects, clear policy.»</div>
+
+  <h3>8. «Need laptop؟»</h3>
+  <div class="say">«Phone enough — ChatGPT app.»</div>
+
+  <h3>9. «Manager says no»</h3>
+  <div class="say">«Personal prep only — show time saved + safety checklist.»</div>
+
+  <h3>10. «Replace creativity؟»</h3>
+  <div class="say">«Ideas starter — YOU choose and innovate.»</div>
+
+  <h3>11. «Cost money؟»</h3>
+  <div class="say">«Free tier enough to start. Paid optional later.»</div>
+
+  <h3>12. «English prompts؟»</h3>
+  <div class="say">«Arabic preferred for Arabic output — both work.»</div>
+
+  <h3>13. «Canva for KG؟»</h3>
+  <div class="say">«Cards posters — templates Arabic — 5 min.»</div>
+
+  <h3>14. «Special needs»</h3>
+  <div class="say">«Prompt «students needing extra support» — no diagnosis names — YOU adapt.»</div>
+
+  <h3>15. «Course after today؟»</h3>
+  <div class="say">«Ask association — today foundation — practice 7 days — deeper later.»</div>
+</div>
+
+<!-- ==================== 18. HANDOUTS ==================== -->
+<div class="section">
+  <h1>١٨. مواد التوزيع + رسالة Follow-up</h1>
+
+  <h2>ورقة «10 Prompts ذهبية» — للطباعة</h2>
+  <ol>
+    <li>خطة درس 45 د — [موضوع][صف]</li>
+    <li>10 MCQ + مفتاح</li>
+    <li>3 مستويات تmaيز</li>
+    <li>شرح مبسّط [مconcept]</li>
+    <li>نشاط emergency 15 د</li>
+    <li>5 essay + rubric</li>
+    <li>WhatsApp أولياء</li>
+    <li>KG: قصة 5 د + أسئلة</li>
+    <li>KG: لعبة حركية 10 د</li>
+    <li>مراجعة pre-exam 30 د</li>
+  </ol>
+
+  <h2>Checklist أمان — صفحة واحدة</h2>
+  <ul class="checklist">
+    <li>لا أسماء/صور/علامات في AI</li>
+    <li>راجعت factual + منهاج + values</li>
+    <li>عدّلت لطلابي ووقتي</li>
+    <li>حفظت في Word — not chat only</li>
+    <li>لا قرارات حساسة on AI alone</li>
+  </ul>
+
+  <h2>رسالة WhatsApp — يوم بعد الندوة</h2>
+  <div class="output">السلام عليكم — شكراً حضوركن في ندوة AI للمعلمات 🌿
+تذكّri: (1) جربي 3 prompts من الورقة (2) راجعي قبل الصف (3) no student data
+روابط: ChatGPT chat.openai.com | Copilot copilot.microsoft.com
+أي سؤال — [contact]. بالتوفيق في صفوفكن!</div>
+</div>
+
+<!-- ==================== 19. EVAL ==================== -->
+<div class="section">
+  <h1>١٩. تقييم + شهادة</h1>
+  <table>
+    <tr><th>البند</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>وضوح</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>عملي</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>KG relevant</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>School relevant</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>أمان</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>تطبيق غداً</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p><strong>شهادة:</strong> «تشهد جمعية [___] أن [الاسم] حضرت ندوة «مساعد ذكي في حقيبة المعلمة — الذكاء الاصطناعي عملياً» بتاريخ [___] — 3 ساعات تدريب.»</p>
+</div>
+
+  <h1>٢٠. دليل الإلقاء المتقدم — صوت، حركة، طاقة</h1>
+
+  <h2>قواعد الصوت (Voice)</h2>
+  <table>
+    <tr><th>الموقف</th><th>كيف تتكلمين</th><th>لماذا</th></tr>
+    <tr><td>افتتاح</td><td>صوت دافئ — بطيء — ابتsmة في الصوت</td><td>بناء ثقة في أول 30 ث</td></tr>
+    <tr><td>شرح نظري</td><td>واضح — جمل قصيرة — pause بعد كل فكرة</td><td>لا overwhelm</td></tr>
+    <tr><td>Demo live</td><td>أبطئ — «الآن أكتب…» — اقرأي prompt بصوت عالٍ</td><td>يتعلّمن معك</td></tr>
+    <tr><td>ورشة</td><td>صوت هادئ — one-to-one — «ممتاز… أضيفي…»</td><td>لا ت disrupt</td></tr>
+    <tr><td>أمان</td><td>جدّي — أبطئ — eye contact — لا humor</td><td>رسالة حياة</td></tr>
+    <tr><td>ختام</td><td>emotion — شكر صادق — pause قبل «شكراً»</td><td>يُ remembered</td></tr>
+  </table>
+
+  <h2>حركة الجسد</h2>
+  <ul>
+    <li><strong>لا</strong> تقفي خلف منصة طوال الوقت — تحرّki في الورش</li>
+    <li>استخدمي يديك عند «3 وعود» — count على الأصابع</li>
+    <li>انظري لـ 3 مناطق: يمين، وسط، يسار — كل 30 ث</li>
+    <li>اقتربي من المشاركات عند share — respect</li>
+    <li>لا تدري ظهرك للشاشة أكثر من 10 ث</li>
+  </ul>
+
+  <h2>جمل انتقال (Transitions) — احفظيها</h2>
+  <div class="say">«الآن من الكلام إلى العمل…»</div>
+  <div class="say">«من شاهدنا إلى جربنا…»</div>
+  <div class="say">«قبل الاستراحة — احفظي ما كتبتِ…»</div>
+  <div class="say">«رجعna ب energy — 35 دقيقة ونخرج بأسئلة جاهزة…»</div>
+  <div class="say">«قبل الشكر — أهم slide: الأمان…»</div>
+
+  <h2>التعامل مع 4 شخصيات في القاعة</h2>
+  <table>
+    <tr><th>النوع</th><th>كيف تتعرفين</th><th>ماذا تفعلين</th></tr>
+    <tr><td>المتحمسة</td><td>تجرب قبل ما تقولي</td><td>«ممتاز — shareي مع زميلة»</td></tr>
+    <tr><td>الخائفة تقنياً</td><td>«أنا ما بفهم tech»</td><td>«زوّجيها — phone enough — 3 clicks»</td></tr>
+    <tr><td>Skeptic</td><td>«AI غلط»</td><td>«صح — لذلك review — جربي ورشة»</td></tr>
+    <tr><td>صامتة</td><td>no eye contact</td><td>سؤال م direct — «أخت [X] شو رأيك؟» — gently</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h1>٢١. أمثلة م output كاملة — اقرئيها إن فشل Net</h1>
+
+  <h2>م output Demo KG — التعاون (جاهز للقراءة)</h2>
+  <div class="output">📖 قصة «النملتان المتعاونتان» (4 دقائق)
+كان يا ما كان نملتان: نملة نشيطة ونملة كسولة. وجدا طعاماً كثيراً. قالت النملة النشيطة: «لنحمل معاً!» حملتا معاً حبة بر bigger منهما. فرحتا وغنّتا.
+
+❓ أسئلة: 1) ماذا وجدتا؟ 2) لماذا حملتا معاً؟ 3) مَن يساعد في البيت؟
+
+🎮 لعبة «الحبل والحبة» (8 د): الأطفال في pairs — يحملون «حبة» (كرة قماش) بين كتفين — بدون يد — ي walk together.</div>
+
+  <h2>م output درس علوم — دورة الماء (م excerpt)</h2>
+  <div class="output">الصف: الرابع | المدة: 40 د | الطلاب: 26
+
+🎯 الأهداف:
+1) يعدّد مراحل دورة الماء (تبخر، تكثف، هطول، جريان).
+2) يربط بين حرارة الشمس والتبخر.
+3) ي describe الدورة ب own words.
+
+⏱ الخطة:
+0–8 د: كوب ماء — «من أين يأتي؟» — brainstorm
+8–23 د: رسم دورة على السبورة — الطلاب ي complete
+23–35 د: in pairs — «ماذا يحدث للماء في الشمس؟»
+35–40 د: 5 أسئلة شفوية + exit ticket
+
+📝 واجب: ارسم دورة الماء و label — بدون net.</div>
+
+  <h2>م output 10 MCQ — كسور (3 أسئلة sample)</h2>
+  <div class="output">1. (سهل) ما الكسر الذي يساوي نصف؟ أ) 1/4 ب) 1/2 ج) 1/3
+2. (متوسط) 2/5 + 1/5 = ? أ) 3/5 ب) 3/10 ج) 2/5
+3. (صعب) أي أكبر: 3/4 أم 2/3؟ أ) 3/4 ب) 2/3 ج) متساويان
+[مفتاح: 1-ب، 2-أ، 3-أ + شرح]</div>
+
+  <h2>م output تmaيز — درس «الضمائر»</h2>
+  <div class="output">| المستوى | النشاط |
+| متفوق | كتابة فقرة 5 أسطر — كل ضمير marked بلون |
+| أساسي | fill blanks 10 جمل — هو/هي/هم |
+| دعم | بطاقات pictures + choose ضمير — 5 items فقط |</div>
+</div>
+
+<div class="section">
+  <h1>٢٢. اتفاق $500 — ما تتفقين عليه كتابياً</h1>
+
+  <div class="box box-gold">
+    <strong>نموذج رسالة للجمعية (قبل التوقيع):</strong>
+  </div>
+  <div class="output">السلام عليكم،
+بخصوص ندوة «مساعد ذكي في حقيبة المعلمة» — 3 ساعات:
+
+✅ المحتوى: 70% عملي — تحضير درس + prompts + أمان
+✅ الجمهور: معلمات KG + مدارس (حتى [X] مشاركة)
+✅ أوفّر: إلقاء + demo حي + مواد PDF للتوزيع
+✅ أحتاج: Projector، Wi-Fi، طاولات مجموعات، 15 د استراحة
+✅ الم honorarium: $500 — [50% قبل / 50% يوم / full بعد]
+✅ Date: [___] | Venue: [___] | Time: [___–___]
+
+أرفق outline — happy للتعديل.
+[اسمك]</div>
+
+  <h2>Checklist يوم الدفع</h2>
+  <ul class="checklist">
+    <li>Delivered 3 hours as agreed</li>
+    <li>Materials distributed</li>
+    <li>Evaluation collected (optional photo)</li>
+    <li>Thank organizer publicly</li>
+    <li>Invoice/receipt if needed</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h1>٢٣. ملحق: أخطاء المتحدث — تجنّبيها</h1>
+  <table>
+    <tr><th>❌ خطأ</th><th>✅ بديل</th></tr>
+    <tr><td>محاضرة 60 د theory</td><td>15 د max — then workshop</td></tr>
+    <tr><td>قراءة من ورقة</td><td>Know جدول الـ 180 دقيقة — natural</td></tr>
+    <tr><td>20 tools</td><td>ChatGPT + Canva mention — 2 enough</td></tr>
+    <tr><td>Promise perfect AI</td><td>«May error — you review»</td></tr>
+    <tr><td>Skip break</td><td>15 د sacred</td></tr>
+    <tr><td>Ignore skeptics</td><td>«Try one workshop — then decide»</td></tr>
+    <tr><td>No backup offline</td><td>Screenshots + paper prompts</td></tr>
+    <tr><td>Rush closing</td><td>Emotional thank + evaluation</td></tr>
+    <tr><td>Student data in live demo</td><td>Always generic examples</td></tr>
+    <tr><td>Overrun — cut workshop</td><td>Cut theory — never workshop</td></tr>
+  </table>
+
+  <div class="box box-gold">
+    <strong>كلمة أخيرة عن $500:</strong> المعلمات تحكم على ما <strong>أنتجنه</strong> اليوم — لا على عدد الشرائح. إن خرجنا ومع كل واحدة خطة درس وابتسامة — استحققتِ كل دولار.
+  </div>
+</div>
+
+<div class="section">
+  <h1>٢٥. سكربت Pitch Deck — كيف تقدّمي الندوة للنقابة (15–20 دقيقة)</h1>
+  <p><strong>الملف:</strong> <code>Pitch-Deck-ندوة-AI-نقابة-المعلمات.pptx</code> — 14 شريحة</p>
+  <p><strong>الجمهور:</strong> أمانة النقابة، رئيسة نقابة معلمات / رياض أطفال، مسؤولة تدريب</p>
+
+  <table>
+    <tr><th>شريحة</th><th>ماذا تقولين (60–90 ث)</th></tr>
+    <tr>
+      <td>1 — العنوان</td>
+      <td class="say">«شكراً لاستقبالي. اليوم أعرض ندوة عملية تمكّن معلماتكن من AI — في الصف <strong>وفي</strong> عمل النقابة.»</td>
+    </tr>
+    <tr>
+      <td>2 — التحدي</td>
+      <td class="say">«المعلمات يتحضّرن ساعات بعد يوم مرهق. النقابة تريد خدمة أعضائها بأدوات عصرية — بميزانية محدودة.»</td>
+    </tr>
+    <tr>
+      <td>3 — الفرصة</td>
+      <td class="say">«AI ليس رفاهية — أداة توفّر وقت. استثمار $500 — أثر على 40–50 معلمة في يوم واحد.»</td>
+    </tr>
+    <tr>
+      <td>4 — لمن</td>
+      <td class="say">«KG، أساسي، ثانوي — وقيادات نقابية تستفيد من قسم التنظيم النقابي.»</td>
+    </tr>
+    <tr>
+      <td>5 — المخرجات</td>
+      <td class="say">«70% عملي. كل معلمة: درس جاهز + 10 prompts + checklist أمان.»</td>
+    </tr>
+    <tr>
+      <td>6 — الأجندة</td>
+      <td class="say">«3 ساعات محددة — ورشتان — استراحة — لا محاضرة تقنية مملة.» [اشيري للجدول]</td>
+    </tr>
+    <tr>
+      <td>7 — مخرجات فردية</td>
+      <td class="say">«يخرجن بمهارة تطبّقونها غداً — وليس كلاماً ينسى بعد أسبوع.»</td>
+    </tr>
+    <tr>
+      <td>8 — النقابة</td>
+      <td class="say">«قيمة مضافة: بيانات، نشرات، أجندات، دعم KG — مسودات للأمانة. القرار يبقى لكن.»</td>
+    </tr>
+    <tr>
+      <td>9 — الأمان</td>
+      <td class="say">«لا بيانات طلاب ولا أعضاء. مراجعة للمحتوى الوطني. تدريب صريح على الحدود.»</td>
+    </tr>
+    <tr>
+      <td>10 — لماذا أنا</td>
+      <td class="say">«[خبرتك — 2 دقيقة]. مواد جاهزة، سكربت، خطة بدون إنترنت.»</td>
+    </tr>
+    <tr>
+      <td>11 — المتطلبات</td>
+      <td class="say">«قاعة، بروجكتر، واي فاي، طاولات مجموعات — والنقابة تروّج وتوقّع شهادات.»</td>
+    </tr>
+    <tr>
+      <td>12 — $500</td>
+      <td class="say">«استثمار واحد: إلقاء 3 ساعات + تحضير + مواد + demo. حتى 50 مشاركة.»</td>
+    </tr>
+    <tr>
+      <td>13 — يشمل السعر</td>
+      <td class="say">«PDF للطباعة، عرض الندوة، استبانة، متابعة اختيارية بعد أسبوع.»</td>
+    </tr>
+    <tr>
+      <td>14 — الخطوات</td>
+      <td class="say">«تأكيد تاريخ — اتفاق بسيط — ترويج أسبوعين — تنفيذ. دورة متابعة؟ نناقش لاحقاً.»</td>
+    </tr>
+  </table>
+
+  <h2>أسئلة متوقعة من الأمانة</h2>
+  <table>
+    <tr><th>السؤال</th><th>إجابتك</th></tr>
+    <tr><td>«ليش $500؟»</td><td>«تحضير 20+ ساعة، مواد، إلقاء 3 ساعات، خبرة. أقل من $12 للمعلمة إن حضر 40.»</td></tr>
+    <tr><td>«بدون نت؟»</td><td>«خطة B — prompts ورقية + screenshots — الندوة لا تتوقف.»</td></tr>
+    <tr><td>«AI خطر على الطلاب؟»</td><td>«NDوة للمعلمات في التحضير — + أمان صارم — لا بيانات طلاب.»</td></tr>
+    <tr><td>«نكررها؟»</td><td>«نعم — أو دورة 6 جلسات لاحقاً باتفاق منفصل.»</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h1>٢٦. ربط الملفات — ماذا تستخدمين ومتى</h1>
+  <table>
+    <tr><th>الملف</th><th>متى</th><th>لمن</th></tr>
+    <tr>
+      <td><strong>دليل-المتحدث-الذكاء-الاصطناعي-للمعلمات.pdf</strong></td>
+      <td>تحضير + يوم الندوة (لا توزّع)</td>
+      <td>أنتِ فقط</td>
+    </tr>
+    <tr>
+      <td><strong>عرض-الندوة-AI-للمعلمات.pptx</strong></td>
+      <td>يوم الندوة — 3 ساعات</td>
+      <td>الحضور على الشاشة</td>
+    </tr>
+    <tr>
+      <td><strong>Pitch-Deck-ندوة-AI-نقابة-المعلمات.pptx</strong></td>
+      <td>قبل التعاقد — 15 د عرض</td>
+      <td>أمانة النقابة</td>
+    </tr>
+    <tr>
+      <td>ورقة 10 Prompts + Checklist (اطبعي من القسم 18)</td>
+      <td>نهاية الندوة</td>
+      <td>كل معلمة</td>
+    </tr>
+  </table>
+
+  <h2>أوامر التوليد</h2>
+  <pre style="background:#f5f5f5;padding:12px;border-radius:6px;font-family:monospace;direction:ltr;text-align:left">
+cd C:\Users\Ammar\NADWA
+npm run build:pptx    ← العروض
+npm run build:pdf     ← دليل المتحدث
+npm run build:all     ← الكل
+  </pre>
+
+  <div class="footer-note">
+    دليل الإلقاء الاحترافي — ندوة 3 ساعات — نقابة المعلمات ورياض الأطفال<br/>
+    PDF + عرض الندوة (28 شريحة) + Pitch Deck (14 شريحة) + 100 Prompt
+  </div>
+</div>
+
+</body>
+</html>
