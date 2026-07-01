@@ -314,6 +314,7 @@ export const siteContent: SiteContent = {
       { name: "مختبر التوليد والأدوات", href: "/sandbox" },
       { name: "البوابة النقابية", href: "/union" },
       { name: "موارد الدورة", href: "/resources" },
+      { name: "🌟 دليل المعلمة", href: "/guide" },
       { name: "من نحن والمدرب", href: "/about" }
     ],
     registerCta: "سجلي الآن"

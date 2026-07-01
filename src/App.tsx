@@ -12,6 +12,7 @@ import UnionPage from './pages/UnionPage';
 import AboutPage from './pages/AboutPage';
 import HowToPromptPage from './pages/HowToPromptPage';
 import ResourcesPage from './pages/ResourcesPage';
+import TeacherGuidePage from './pages/TeacherGuidePage';
 
 // Presenter Context & Control panel
 import { PresenterProvider } from './context/PresenterContext';
@@ -53,6 +54,7 @@ export const App: React.FC = () => {
               <Route path="/union" element={<UnionPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/guide" element={<TeacherGuidePage />} />
             </Routes>
           </main>
 
