@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FileText, Download, Youtube, BookOpen, ExternalLink, 
-  Search, Globe, Sparkles, Copy, Check 
+  Search, Globe, Sparkles 
 } from 'lucide-react';
 
 interface ResourceItem {
@@ -17,7 +17,6 @@ interface ResourceItem {
 export const ResourcesPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'pdf' | 'video' | 'site' | 'book'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [copiedId, setCopiedId] = useState<number | null>(null);
 
   const categories = [
     { id: 'all', label: 'الكل' },
@@ -110,12 +109,6 @@ export const ResourcesPage: React.FC = () => {
     }
   ];
 
-  const handleCopy = (text: string, index: number) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(index);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
-
   const filteredResources = resourcesList
     .filter(res => activeCategory === 'all' || res.category === activeCategory)
     .filter(res => 
@@ -202,20 +195,16 @@ export const ResourcesPage: React.FC = () => {
                 layout
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                {filteredResources.map((res, idx) => {
-                  const globalIdx = resourcesList.findIndex(r => r.title === res.title);
-                  const isCopied = copiedId === globalIdx;
-
-                  return (
-                    <motion.div
-                      layout
-                      key={res.title}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.3 }}
-                      className="glass-panel border-slate-900 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-850 transition-all group"
-                    >
+                {filteredResources.map((res) => (
+                  <motion.div
+                    layout
+                    key={res.title}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    className="glass-panel border-slate-900 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-850 transition-all group"
+                  >
                       <div className="space-y-4">
                         {/* Title & Badge */}
                         <div className="flex justify-between items-start gap-4">
@@ -272,8 +261,7 @@ export const ResourcesPage: React.FC = () => {
                       </div>
 
                     </motion.div>
-                  );
-                })}
+                  ))}
               </motion.div>
             ) : (
               <motion.div 

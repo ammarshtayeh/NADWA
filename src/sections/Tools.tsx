@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteContent } from '../data/content';
 import type { AITool } from '../data/content';
-import { ExternalLink, HelpCircle, Check, Play, X, Star } from 'lucide-react';
+import { ExternalLink, Play, X } from 'lucide-react';
 
 export const Tools: React.FC = () => {
   const { tools } = siteContent;
@@ -82,7 +82,7 @@ export const Tools: React.FC = () => {
 
         {/* Tools Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8 mb-24">
-          {filteredTools.map((tool: AITool, index: number) => (
+          {filteredTools.map((tool: AITool) => (
             <div
               key={tool.name}
               className="glass-panel border-slate-900 rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative group overflow-hidden hover:border-slate-850 hover:shadow-lg"

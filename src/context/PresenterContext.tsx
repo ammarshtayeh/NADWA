@@ -55,7 +55,7 @@ export const PresenterProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   // Timer tick effect
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
+    let interval: any = null;
     if (isTimerRunning && presenterMode) {
       interval = setInterval(() => {
         setTimerSeconds((prev) => prev + 1);

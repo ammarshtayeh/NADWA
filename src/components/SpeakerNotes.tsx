@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePresenter } from '../context/PresenterContext';
-import { HelpCircle, Mic, Play, ArrowLeftCircle, BookOpen } from 'lucide-react';
+import { HelpCircle, Mic, Play, ArrowLeftCircle } from 'lucide-react';
 
 interface SpeakerNotesProps {
   whatToSay: string;
