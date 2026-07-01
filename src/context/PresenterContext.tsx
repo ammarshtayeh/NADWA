@@ -13,6 +13,8 @@ interface PresenterContextType {
   setFontSizeClass: (fs: 'text-normal' | 'text-large' | 'text-xlarge') => void;
   showSpeakerNotes: boolean;
   setShowSpeakerNotes: (val: boolean) => void;
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
 }
 
 const PresenterContext = createContext<PresenterContextType | undefined>(undefined);
@@ -26,6 +28,9 @@ export const PresenterProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
   const [fontSizeClass, setFontSizeClass] = useState<'text-normal' | 'text-large' | 'text-xlarge'>('text-normal');
   const [showSpeakerNotes, setShowSpeakerNotes] = useState<boolean>(true);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('app_theme') as 'dark' | 'light') || 'dark';
+  });
 
   // Sync mode to local storage and document class
   useEffect(() => {
@@ -40,6 +45,16 @@ export const PresenterProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       setIsTimerRunning(false);
     }
   }, [presenterMode]);
+
+  // Sync theme
+  useEffect(() => {
+    localStorage.setItem('app_theme', theme);
+    if (theme === 'light') {
+      document.documentElement.classList.add('light-theme');
+    } else {
+      document.documentElement.classList.remove('light-theme');
+    }
+  }, [theme]);
 
   // Sync font size classes
   useEffect(() => {
@@ -66,6 +81,10 @@ export const PresenterProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     };
   }, [isTimerRunning, presenterMode]);
 
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <PresenterContext.Provider
       value={{
@@ -81,6 +100,8 @@ export const PresenterProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         setFontSizeClass,
         showSpeakerNotes,
         setShowSpeakerNotes,
+        theme,
+        toggleTheme
       }}
     >
       {children}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
-import { Menu, X, Tv } from 'lucide-react';
+import { Menu, X, Tv, Sun, Moon } from 'lucide-react';
 import { usePresenter } from '../context/PresenterContext';
 
 export const Navbar: React.FC = () => {
-  const { presenterMode, setPresenterMode } = usePresenter();
+  const { presenterMode, setPresenterMode, theme, toggleTheme } = usePresenter();
   const { navigation } = siteContent;
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,6 +70,15 @@ export const Navbar: React.FC = () => {
               <Tv className="w-3.5 h-3.5" />
               <span>{presenterMode ? 'إنهاء وضع العارض' : 'وضع العارض 🖥️'}</span>
             </button>
+
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="mr-2 p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-350 hover:text-white cursor-pointer transition-all hover:bg-slate-900"
+              title={theme === 'dark' ? "تشغيل المظهر المضيء" : "تشغيل المظهر الداكن"}
+            >
+              {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-blue-450" />}
+            </button>
           </div>
 
 
@@ -99,7 +108,7 @@ export const Navbar: React.FC = () => {
       >
         <div className="px-4 pt-4 pb-6 space-y-2 border-t border-slate-900">
           {/* Mobile Presenter Mode Button */}
-          <div className="pb-3 border-b border-slate-900 mb-2">
+          <div className="pb-3 border-b border-slate-900 mb-2 flex flex-col gap-2">
             <button
               onClick={() => {
                 setPresenterMode(!presenterMode);
@@ -113,6 +122,18 @@ export const Navbar: React.FC = () => {
             >
               <Tv className="w-4 h-4" />
               <span>{presenterMode ? 'إنهاء وضع العارض 🖥️' : 'وضع العارض للمحاضر 🖥️'}</span>
+            </button>
+
+            {/* Mobile Theme Toggle Button */}
+            <button
+              onClick={() => {
+                toggleTheme();
+                setIsOpen(false);
+              }}
+              className="w-full text-center px-4 py-2.5 rounded-lg text-xs font-bold border border-slate-800 bg-slate-900 text-slate-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-450" />}
+              <span>{theme === 'dark' ? 'تشغيل المظهر المضيء ☀️' : 'تشغيل المظهر الداكن 🌙'}</span>
             </button>
           </div>
           {navigation.links.map((link) => (

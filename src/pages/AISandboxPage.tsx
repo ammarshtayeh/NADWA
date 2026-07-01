@@ -5,6 +5,7 @@ import { siteContent } from '../data/content';
 import type { PromptLibraryItem } from '../data/content';
 import { Terminal, Copy, Check, Music, Image, Search } from 'lucide-react';
 import SpeakerNotes from '../components/SpeakerNotes';
+import VisualAidsSection from '../sections/VisualAidsSection';
 
 export const AISandboxPage: React.FC = () => {
   const { promptLibrary, mediaGenerationGuide } = siteContent;
@@ -160,6 +161,9 @@ export const AISandboxPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Visual Aids Section */}
+      <VisualAidsSection />
 
       {/* 4. Prompt Library Section */}
       <section id="prompt-library" className="relative py-24 bg-slate-900/15 overflow-hidden">
