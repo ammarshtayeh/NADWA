@@ -13,6 +13,7 @@ import AboutPage from './pages/AboutPage';
 import HowToPromptPage from './pages/HowToPromptPage';
 import ResourcesPage from './pages/ResourcesPage';
 import TeacherGuidePage from './pages/TeacherGuidePage';
+import WorkshopPage from './pages/WorkshopPage';
 
 // Presenter Context & Control panel
 import { PresenterProvider } from './context/PresenterContext';
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
           <main className="relative z-10 flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/workshop" element={<WorkshopPage />} />
               <Route path="/curriculum" element={<CurriculumPage />} />
               <Route path="/how-to-prompt" element={<HowToPromptPage />} />
               <Route path="/sandbox" element={<AISandboxPage />} />

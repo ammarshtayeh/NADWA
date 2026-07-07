@@ -138,16 +138,16 @@ export const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto"
           >
             <Link
-              to="/curriculum"
+              to="/workshop"
               className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-slate-950 font-bold rounded-xl shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transform hover:-translate-y-0.5 transition-all text-center"
             >
-              {hero.curriculumBtn}
+              ▶️ ابدئي عرض الندوة الكامل
             </Link>
             <Link
-              to="/sandbox"
+              to="/curriculum"
               className="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-slate-850 text-slate-200 font-semibold rounded-xl border border-slate-800 hover:border-emerald-500/30 transition-all text-center"
             >
-              مختبر التوليد والأدوات
+              الجدول والبرنامج
             </Link>
           </motion.div>
         </motion.div>

@@ -22,6 +22,9 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // أثناء وضع العارض تتولى لوحة العارض أعلى الشاشة — نخفي شريط التنقل لمنع التداخل
+  if (presenterMode) return null;
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 

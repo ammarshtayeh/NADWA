@@ -340,24 +340,25 @@ export const siteContent: SiteContent = {
     ]
   },
   navigation: {
-    logoText: "تدريب AI — رياض الأطفال",
+    logoText: "تدريب AI — نابلس",
     links: [
       { name: "الرئيسية", href: "/" },
-      { name: "المحاور والبرنامج", href: "/curriculum" },
+      { name: "▶️ عرض الندوة", href: "/workshop" },
+      { name: "البرنامج", href: "/curriculum" },
       { name: "كيف أحاور الـ AI؟", href: "/how-to-prompt" },
-      { name: "مختبر التوليد والأدوات", href: "/sandbox" },
+      { name: "مختبر الأدوات", href: "/sandbox" },
       { name: "البوابة النقابية", href: "/union" },
-      { name: "موارد الدورة", href: "/resources" },
-      { name: "🌟 دليل المعلمة", href: "/guide" },
-      { name: "من نحن والمدرب", href: "/about" }
+      { name: "الموارد", href: "/resources" },
+      { name: "دليل المعلمة", href: "/guide" },
+      { name: "عن البرنامج", href: "/about" }
     ],
-    registerCta: "سجلي الآن"
+    registerCta: "ابدأ الورشة"
   },
   hero: {
     title: "المدرسات الشابات في قطاع رياض الأطفال",
     subtitle: "تدريب عملي حول الاستفادة من الذكاء الاصطناعي في قطاع التعليم والعمل النقابي — برنامج حملات التنظيم والتوعية، بتنظيم مركز التضامن والاتحاد العام لنقابات عمال فلسطين.",
-    registerBtn: "سجلي الآن",
-    curriculumBtn: "شاهدي البرنامج"
+    registerBtn: "ابدأ الورشة",
+    curriculumBtn: "▶️ الورشة الكاملة"
   },
   trainer: {
     name: "عمار اشتية",

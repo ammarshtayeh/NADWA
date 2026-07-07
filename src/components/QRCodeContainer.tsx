@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Sparkles, X, Maximize2 } from 'lucide-react';
 
 export const QRCodeContainer: React.FC = () => {
-  const [qrUrl, setQrUrl] = useState('https://nadwa.vercel.app/resources');
+  const [qrUrl, setQrUrl] = useState('https://nadwa.vercel.app/workshop');
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const origin = window.location.origin;
-      setQrUrl(`${origin}/resources`);
+      setQrUrl(`${origin}/workshop`);
     }
   }, []);
 
