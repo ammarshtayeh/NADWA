@@ -1,42 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { siteContent } from '../data/content';
 import { Award, Clock, Users, Laptop } from 'lucide-react';
 
 interface StatItem {
   number: string;
   label: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
 }
 
 export const Stats: React.FC = () => {
+  const { event } = siteContent;
+
   const items: StatItem[] = [
     {
-      number: "10+",
-      label: "أدوات ذكية مستعرضة",
-      description: "برامج متخصصة بالتعليم الصفي، الأناشيد، الرسوم والتنظيم العملي.",
+      number: "10",
+      label: "أدوات ذكية",
+      description: "ChatGPT، Canva، Gamma، NotebookLM، MagicSchool وغيرها.",
       icon: Laptop,
       color: "text-emerald-400 border-emerald-500/20"
     },
     {
-      number: "3 ساعات",
-      label: "من التطبيق والمحاكاة",
-      description: "تدريب عملي مكثف يركز على التطبيقات المباشرة وتجريب الهواتف.",
+      number: "5.5",
+      label: "ساعة برنامج",
+      description: "من 9:00 ص حتى 2:30 م — تدريب وتطبيق واستراحة وغداء.",
       icon: Clock,
       color: "text-red-400 border-red-500/20"
     },
     {
-      number: "500+",
-      label: "معلمة مستهدفة",
-      description: "تمكين المعلمات في نابلس والمحافظات تكنولوجياً ونقابياً.",
+      number: "4",
+      label: "محاور تطبيقية",
+      description: "تعليم · نقابة · أدوات · أخلاقيات وتطبيق ختامي.",
       icon: Users,
       color: "text-amber-400 border-amber-500/20"
     },
     {
-      number: "3+",
-      label: "نقابات وهيئات شريكة",
-      description: "تنسيق متكامل لدعم مسيرة حقوق المعلمات وتطوير التعليم الفلسطيني.",
+      number: "2",
+      label: "جهة منظمة",
+      description: "مركز التضامن · الاتحاد العام لنقابات عمال فلسطين.",
       icon: Award,
       color: "text-blue-400 border-blue-500/20"
     }
@@ -44,10 +47,12 @@ export const Stats: React.FC = () => {
 
   return (
     <section className="relative py-16 bg-slate-950 overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute inset-0 bg-tatreez-diamond opacity-[0.02] z-0"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        <p className="text-center text-slate-500 text-xs sm:text-sm mb-8 font-semibold">
+          {event.date} · {event.location}
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((stat, i) => {
             const IconComponent = stat.icon;
@@ -61,10 +66,8 @@ export const Stats: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 className={`glass-panel border rounded-2xl p-6 text-center flex flex-col items-center justify-center relative overflow-hidden group transition-all duration-300 ${stat.color}`}
               >
-                {/* Background glow hover */}
                 <div className="absolute -top-12 -right-12 w-24 h-24 bg-emerald-500/5 group-hover:bg-emerald-500/10 rounded-full blur-xl transition-all"></div>
 
-                {/* Top border flag highlight */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 flex">
                   <div className="flex-1 bg-black"></div>
                   <div className="flex-1 bg-red-600"></div>

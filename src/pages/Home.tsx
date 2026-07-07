@@ -62,17 +62,17 @@ export const Home: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950/40 border border-red-500/20 text-red-400 text-xs font-bold mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-bold mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>الورشة مجانية بالكامل والمقاعد محدودة</span>
+                <span>فندق القصر — نابلس · 8 تموز 2026</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-100 leading-tight">
-                ابدئي رحلة التمكين الرقمي والنقابي اليوم
+                استكشفي البرنامج التدريبي والأدوات العملية
               </h2>
               
               <p className="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base leading-relaxed">
-                انضمي إلينا وجاهياً أو عن بُعد عبر الإنترنت، وتعلّمي كيف تختصرين ساعات التحضير الطويلة، وتصنعين وسائط وألعاب صفية مبتكرة لأطفال فلسطين، وتفعّلين العمل النقابي والتواصل التكنولوجي بذكاء.
+                جدول رسمي من 9:00 ص حتى 2:30 م — مقدمة، تطبيق تعليمي ونقابي، أدوات، أخلاقيات، وجلسة ختامية تطبيقية.
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -2,54 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>أجندة شاملة — الذكاء الاصطناعي في التعليم والتنظيم النقابي</title>
+  <title>برنامج التدريب — الذكاء الاصطناعي في قطاع التعليم</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0d3d2e;
-      --mid: #1a5f4a;
-      --light: #e6f4ef;
-      --gold: #8b6914;
+      --primary: #1a3a6e;
+      --mid: #2563a8;
+      --light: #e8f0fa;
+      --accent: #c41e3a;
       --text: #1a1a1a;
       --muted: #444;
-      --border: #b8ccc4;
+      --border: #b8c8dc;
     }
     * { box-sizing: border-box; }
     body { font-family: "Tajawal", Arial, sans-serif; font-size: 10.5pt; line-height: 1.72; color: var(--text); margin: 0; }
     .cover {
-      page-break-after: always; min-height: 270mm; background: #0d3d2e; color: #fff;
-      display: flex; flex-direction: column; justify-content: center; padding: 20mm 24mm; text-align: center;
+      page-break-after: always; min-height: 270mm;
+      background: linear-gradient(160deg, #1a3a6e 0%, #0f2744 55%, #1a3a6e 100%);
+      color: #fff; display: flex; flex-direction: column; justify-content: center;
+      padding: 18mm 22mm; text-align: center;
     }
-    .cover .label { font-size: 9pt; border: 1px solid rgba(255,255,255,0.35); display: inline-block; padding: 5px 18px; margin-bottom: 12mm; }
-    .cover h1 { font-size: 22pt; font-weight: 800; line-height: 1.55; margin: 0 0 6mm; }
-    .cover .sub { font-size: 12pt; opacity: 0.9; line-height: 2; }
-    .cover .info-table { margin-top: 12mm; width: 100%; border-collapse: collapse; font-size: 9.5pt; text-align: right; }
+    .cover .program-label { font-size: 9pt; opacity: 0.85; margin-bottom: 6mm; letter-spacing: 0.5px; }
+    .cover .partners { display: flex; justify-content: center; gap: 16px; margin-bottom: 10mm; font-size: 8.5pt; opacity: 0.9; flex-wrap: wrap; }
+    .cover .partner { border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; border-radius: 4px; }
+    .cover h1 { font-size: 17pt; font-weight: 800; line-height: 1.65; margin: 0 0 5mm; }
+    .cover .sub { font-size: 11pt; opacity: 0.88; line-height: 1.9; margin-bottom: 10mm; }
+    .cover .info-table { margin-top: 8mm; width: 100%; border-collapse: collapse; font-size: 9.5pt; text-align: right; }
     .cover .info-table td { border: 1px solid rgba(255,255,255,0.25); padding: 7px 11px; }
-    .cover .info-table td:first-child { width: 36%; background: rgba(255,255,255,0.08); font-weight: 700; }
-    .cover .org { margin-top: 10mm; font-size: 9.5pt; opacity: 0.88; line-height: 1.9; }
+    .cover .info-table td:first-child { width: 32%; background: rgba(255,255,255,0.08); font-weight: 700; }
+    .cover .trainer { margin-top: 10mm; font-size: 10pt; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8mm; }
     .toc { page-break-after: always; padding: 14mm 20mm; }
-    .toc h1 { font-size: 14pt; color: var(--primary); border-bottom: 2px solid var(--gold); padding-bottom: 5px; }
+    .toc h1 { font-size: 14pt; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 5px; }
     .toc ol { padding-right: 20px; line-height: 2; font-size: 10.5pt; }
-  .section { page-break-before: always; padding: 14mm 18mm 12mm; }
+    .section { page-break-before: always; padding: 14mm 18mm 12mm; }
     .section-first { page-break-before: auto; padding: 14mm 18mm 12mm; }
-    h1 { color: var(--primary); font-size: 14pt; font-weight: 800; border-bottom: 2px solid var(--gold); padding-bottom: 5px; margin: 0 0 12px; }
-    h2 { color: var(--mid); font-size: 11.5pt; font-weight: 700; margin: 14px 0 7px; padding-right: 8px; border-right: 3px solid var(--gold); }
-    h3 { color: var(--primary); font-size: 10.5pt; margin: 10px 0 5px; }
+    h1 { color: var(--primary); font-size: 14pt; font-weight: 800; border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin: 0 0 12px; }
+    h2 { color: var(--mid); font-size: 11.5pt; font-weight: 700; margin: 14px 0 7px; padding-right: 8px; border-right: 3px solid var(--accent); }
     p { margin: 6px 0; text-align: justify; }
-    ul, ol { margin: 6px 0; padding-right: 20px; }
+    ul { margin: 6px 0; padding-right: 20px; }
     li { margin: 3px 0; }
     table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 9.5pt; }
     th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: right; vertical-align: top; }
     th { background: var(--light); color: var(--primary); font-weight: 700; }
-    tr:nth-child(even) td { background: #fafcfb; }
+    tr:nth-child(even) td { background: #fafcfe; }
+    .row-break td { background: #eef4fb !important; }
+    .row-opening td { background: #fff8ee !important; }
     .row-work td { background: #eef6f2 !important; }
     .box { background: var(--light); border: 1px solid var(--border); border-right: 4px solid var(--mid); padding: 10px 14px; margin: 10px 0; }
     .box-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-    .axis { border: 1px solid var(--border); padding: 10px 12px; margin: 8px 0; background: #fff; page-break-inside: avoid; }
-    .axis-title { color: var(--primary); font-weight: 800; font-size: 11pt; margin-bottom: 6px; }
-    .axis-time { font-size: 9pt; color: var(--muted); margin-bottom: 5px; }
-    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
-    .tool { border: 1px solid var(--border); padding: 6px 9px; font-size: 9.5pt; background: #fff; }
     .footer { margin-top: 16px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 8.5pt; color: var(--muted); text-align: center; line-height: 1.7; }
   </style>
 </head>
@@ -57,55 +57,60 @@
 
 <!-- الغلاف -->
 <div class="cover">
-  <div class="label">وثيقة رسمية — أجندة شاملة</div>
-  <h1>الذكاء الاصطناعي في التعليم<br/>والتنظيم النقابي</h1>
-  <div class="sub">ندوة تدريبية نظرية وتطبيقية<br/>لمعلمات المدارس ورياض الأطفال<br/>وأعضاء نقابة المعلمات ورياض الأطفال</div>
+  <div class="program-label">برنامج حملات التنظيم والتوعية</div>
+  <div class="partners">
+    <span class="partner">مركز التضامن — Solidarity Center AFL-CIO</span>
+    <span class="partner">الاتحاد العام لنقابات عمال فلسطين</span>
+  </div>
+  <h1>المدرسات الشابات في قطاع رياض الأطفال:<br/>تدريب حول الاستفادة من الذكاء الاصطناعي<br/>في قطاع التعليم</h1>
+  <div class="sub">برنامج تدريبي نظري وتطبيقي<br/>في التعليم والعمل النقابي</div>
   <table class="info-table">
+    <tr><td>التاريخ</td><td>يوم الأربعاء 8 / 7 / 2026 (8 تموز 2026)</td></tr>
+    <tr><td>المكان</td><td>فندق القصر — نابلس</td></tr>
+    <tr><td>الوقت</td><td>9:00 ص – 2:30 م (غداء ومغادرة)</td></tr>
+    <tr><td>الفئة المستهدفة</td><td>المدرسات الشابات في قطاع رياض الأطفال</td></tr>
+    <tr><td>المتحدث والمدرب</td><td>عمار اشتية</td></tr>
     <tr><td>رقم الوثيقة</td><td>AG-2026-0708</td></tr>
-    <tr><td>التاريخ</td><td>الثلاثاء 8 تموز 2026</td></tr>
-    <tr><td>المدة</td><td>3 ساعات (180 دقيقة) — شامل 15 دقيقة استراحة</td></tr>
-    <tr><td>المنهجية</td><td>30% تأطير نظري — 70% تطبيق عملي مباشر</td></tr>
-    <tr><td>المتحدث</td><td>عمار اشتية</td></tr>
-    <tr><td>الجهة المنظمة</td><td>[اسم النقابة / الجمعية]</td></tr>
-    <tr><td>المكان</td><td>يُحدَّد من الجهة المنظمة</td></tr>
   </table>
-  <div class="org">وثيقة مُعدَّة للاطلاع والاعتماد — المسؤولون عن البرنامج التدريبي</div>
+  <div class="trainer">وثيقة مرافقة للبرنامج التدريبي — للاطلاع والتنسيق</div>
 </div>
 
 <!-- الفهرس -->
 <div class="toc">
   <h1>فهرس الوثيقة</h1>
   <ol>
-    <li>بيانات الندوة والفئة المستهدفة</li>
+    <li>بيانات البرنامج والفئة المستهدفة</li>
     <li>الأهداف العامة</li>
-    <li>المحاور السبعة — المحتوى التفصيلي</li>
-    <li>الجدول الزمني (180 دقيقة)</li>
+    <li>لجنة الافتتاح والمدرب</li>
+    <li>برنامج التدريب — الجدول الرسمي</li>
     <li>منهجية التدريب وشروط النجاح</li>
     <li>إطار البرومبت الاحترافي</li>
     <li>ضوابط الخصوصية والأمان</li>
-    <li>مخرجات الندوة</li>
+    <li>مخرجات التدريب</li>
     <li>المواد المرافقة والقوالب</li>
   </ol>
 </div>
 
 <!-- ١ -->
 <div class="section-first">
-  <h1>١. بيانات الندوة والفئة المستهدفة</h1>
+  <h1>١. بيانات البرنامج والفئة المستهدفة</h1>
   <table>
     <tr><th style="width:28%">البند</th><th>التفاصيل</th></tr>
-    <tr><td>اسم البرنامج</td><td>الذكاء الاصطناعي في التعليم والتنظيم النقابي</td></tr>
-    <tr><td>المدة</td><td>3 ساعات (180 دقيقة) — شامل 15 دقيقة استراحة</td></tr>
-    <tr><td>التاريخ</td><td>الثلاثاء 8 تموز 2026</td></tr>
-    <tr><td>المتحدث</td><td>عمار اشتية</td></tr>
+    <tr><td>اسم البرنامج</td><td>برنامج حملات التنظيم والتوعية</td></tr>
+    <tr><td>عنوان التدريب</td><td>المدرسات الشابات في قطاع رياض الأطفال: تدريب حول الاستفادة من الذكاء الاصطناعي في قطاع التعليم</td></tr>
+    <tr><td>التاريخ</td><td>الأربعاء 8 تموز 2026</td></tr>
+    <tr><td>المكان</td><td>فندق القصر — نابلس</td></tr>
+    <tr><td>الوقت</td><td>9:00 ص – 2:30 م</td></tr>
+    <tr><td>المتحدث والمدرب</td><td>عمار اشتية</td></tr>
+    <tr><td>الجهات المنظمة</td><td>مركز التضامن (Solidarity Center AFL-CIO) · الاتحاد العام لنقابات عمال فلسطين</td></tr>
     <tr><td>الصيغة</td><td>حضوري — تفاعلي — تطبيق مباشر</td></tr>
-    <tr><td>المتطلبات المسبقة</td><td>هاتف ذكي أو حاسوب — لا يشترط خبرة تقنية</td></tr>
   </table>
 
   <h2>الفئة المستهدفة</h2>
   <ul>
-    <li>معلمات المدارس (مرحلة أساسية وثانوية)</li>
-    <li>معلمات رياض الأطفال</li>
-    <li>أعضاء نقابة المعلمات ورياض الأطفال</li>
+    <li>المدرسات الشابات في قطاع رياض الأطفال</li>
+    <li>عضوات النقابة الفرعية في نابلس</li>
+    <li>الكوادر التربوية المرافقة للبرنامج</li>
   </ul>
 
   <div class="box">
@@ -117,11 +122,10 @@
 <!-- ٢ -->
 <div class="section">
   <h1>٢. الأهداف العامة</h1>
-  <p>بنهاية الندوة يكون المشارك/ـة قادرًا على:</p>
   <table>
     <tr><th style="width:5%">#</th><th>الهدف</th></tr>
     <tr><td>١</td><td>فهم دور الذكاء الاصطناعي في التعليم والعمل النقابي — بشكل عام وعملي.</td></tr>
-    <tr><td>٢</td><td>توظيف الذكاء الاصطناعي في إعداد الدروس والأنشطة التعليمية.</td></tr>
+    <tr><td>٢</td><td>توظيف الذكاء الاصطناعي في إعداد الدروس والأنشطة التعليمية لرياض الأطفال.</td></tr>
     <tr><td>٣</td><td>استخدام أدوات متعددة لتوفير الوقت ورفع جودة العمل التربوي والنقابي.</td></tr>
     <tr><td>٤</td><td>الاستفادة من الذكاء الاصطناعي في تطوير العمل النقابي وتحسين التواصل مع الأعضاء.</td></tr>
     <tr><td>٥</td><td>كتابة برومبتات احترافية للحصول على أفضل النتائج.</td></tr>
@@ -129,218 +133,122 @@
   </table>
 </div>
 
-<!-- ٣ المحاور -->
+<!-- ٣ لجنة الافتتاح -->
 <div class="section">
-  <h1>٣. المحاور السبعة — المحتوى التفصيلي</h1>
-
-  <div class="axis">
-    <div class="axis-title">المحور الأول | مقدمة</div>
-    <div class="axis-time">⏱ 20 دقيقة</div>
-    <ul>
-      <li>الذكاء الاصطناعي: لماذا أصبح ضرورة في قطاع التعليم؟</li>
-      <li>أبرز التطورات الحالية وتأثيرها على مهنة التعليم.</li>
-      <li>تصحيح المفاهيم الشائعة حول الذكاء الاصطناعي.</li>
-      <li>الفرق بين البحث التقليدي والأنظمة الذكية — نظرة عامة.</li>
-    </ul>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور الثاني | الذكاء الاصطناعي في التعليم</div>
-    <div class="axis-time">⏱ 30 دقيقة</div>
-    <ul>
-      <li>إعداد الخطط الدراسية خلال دقائق.</li>
-      <li>إنشاء الأنشطة التعليمية والألعاب الصفية.</li>
-      <li>تصميم أوراق العمل والاختبارات.</li>
-      <li>إنتاج القصص التعليمية لرياض الأطفال.</li>
-      <li>إعداد العروض التقديمية والوسائل التعليمية.</li>
-      <li>ترجمة وتبسيط المحتوى التعليمي.</li>
-      <li>أفضل الممارسات في كتابة البرومبتات للحصول على نتائج دقيقة.</li>
-    </ul>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور الثالث | تطبيقات عملية مباشرة</div>
-    <div class="axis-time">⏱ 45 دقيقة</div>
-    <p>عرض حي وتطبيق جماعي باستخدام أدوات الذكاء الاصطناعي لإنجاز مهام تعليمية:</p>
-    <ul>
-      <li>إعداد درس كامل.</li>
-      <li>إنشاء قصة تعليمية.</li>
-      <li>تصميم نشاط صفي.</li>
-      <li>إعداد اختبار.</li>
-      <li>إنشاء عرض تقديمي.</li>
-      <li>تصميم صور ومواد تعليمية.</li>
-    </ul>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور الرابع | الذكاء الاصطناعي في التنظيم النقابي</div>
-    <div class="axis-time">⏱ 25 دقيقة</div>
-    <ul>
-      <li>كتابة البيانات الصحفية والكتب الرسمية.</li>
-      <li>إعداد المراسلات والتعاميم.</li>
-      <li>تلخيص الاجتماعات واستخراج القرارات.</li>
-      <li>تحليل الاستبيانات وشكاوى المعلمات.</li>
-      <li>إعداد التقارير والإحصائيات لدعم اتخاذ القرار.</li>
-      <li>تصميم الحملات التوعوية والإعلامية.</li>
-      <li>إعداد مقترحات المشاريع وطلبات التمويل.</li>
-      <li>بناء قاعدة معرفة ومساعد ذكي لخدمة أعضاء النقابة.</li>
-    </ul>
-    <p style="font-size:9pt; color:var(--muted);"><em>ملاحظة: جميع المخرجات النقابية مسودات للمراجعة والاعتماد الرسمي — القرار يبقى بشرياً.</em></p>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور الخامس | أدوات الذكاء الاصطناعي التي يحتاجها كل معلم</div>
-    <div class="axis-time">⏱ 20 دقيقة</div>
-    <p>التعريف بأهم الأدوات واستخداماتها العملية:</p>
-    <div class="tools-grid">
-      <div class="tool"><strong>ChatGPT</strong> — نصوص، دروس، أسئلة، أفكار</div>
-      <div class="tool"><strong>Gemini</strong> — بحث، تلخيص، محتوى متعدد</div>
-      <div class="tool"><strong>Claude</strong> — نصوص طويلة، تحليل، صياغة</div>
-      <div class="tool"><strong>Canva AI</strong> — تصميم بصري، بطاقات، بوسترات</div>
-      <div class="tool"><strong>Gamma</strong> — عروض تقديمية سريعة</div>
-      <div class="tool"><strong>NotebookLM</strong> — تلخيص مستندات ومصادر</div>
-      <div class="tool"><strong>MagicSchool AI</strong> — أدوات تعليمية جاهزة للمعلمين</div>
-      <div class="tool"><strong>ElevenLabs</strong> — تحويل نص إلى صوت</div>
-      <div class="tool"><strong>Suno</strong> — إنشاء أناشيد وأصوات</div>
-      <div class="tool"><strong>Napkin AI</strong> — رسوم ومخططات من النص</div>
-    </div>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور السادس | أخلاقيات الاستخدام</div>
-    <div class="axis-time">⏱ 10 دقائق</div>
-    <ul>
-      <li>حماية خصوصية الطلاب.</li>
-      <li>أمن المعلومات.</li>
-      <li>الاستخدام المسؤول للذكاء الاصطناعي.</li>
-      <li>كيفية مراجعة المحتوى والتحقق منه.</li>
-      <li>السياق الفلسطيني: مراجعة المحتوى التاريخي والوطني والديني.</li>
-    </ul>
-  </div>
-
-  <div class="axis">
-    <div class="axis-title">المحور السابع | جلسة تطبيقية وأسئلة</div>
-    <div class="axis-time">⏱ 20 دقيقة</div>
-    <ul>
-      <li>تنفيذ تطبيقات مباشرة مع الحضور.</li>
-      <li>مناقشة حالات واقعية من بيئة المدارس ورياض الأطفال والعمل النقابي.</li>
-      <li>الإجابة عن أسئلة واستفسارات المشاركين.</li>
-      <li>استبانة تقييم الندوة.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ٤ الجدول الزمني -->
-<div class="section">
-  <h1>٤. الجدول الزمني — 180 دقيقة (ثلاث ساعات)</h1>
+  <h1>٣. لجنة الافتتاح والمدرب</h1>
   <table>
-    <tr>
-      <th style="width:10%">التوقيت</th>
-      <th style="width:8%">المدة</th>
-      <th style="width:22%">المحور / الجلسة</th>
-      <th>الموضوعات</th>
-      <th style="width:12%">النوع</th>
+    <tr><th style="width:35%">الاسم</th><th>الصفة</th><th>الدور في البرنامج</th></tr>
+    <tr class="row-opening">
+      <td>الأخت حنين بازيان</td>
+      <td>رئيسة النقابة الفرعية — نابلس</td>
+      <td>كلمة افتتاح وترحيب — 9:30 – 9:40</td>
     </tr>
-    <tr>
-      <td>0:00</td><td>10 د</td>
-      <td>افتتاح وتمهيد</td>
-      <td>ترحيب، أهداف الندوة، توقعات المشاركين، قياس المستوى المبدئي وتوزيع المطبوعات</td>
-      <td>توجيهي</td>
+    <tr class="row-opening">
+      <td>عبد الكريم دويكات</td>
+      <td>أمين سر المجلس اللوائي — نابلس</td>
+      <td>كلمة في الافتتاح الرسمي</td>
     </tr>
-    <tr>
-      <td>0:10</td><td>20 د</td>
-      <td>المحور الأول — مقدمة</td>
-      <td>ضرورة AI في التعليم، التطورات، تصحيح المفاهيم والفروقات</td>
-      <td>توجيهي</td>
-    </tr>
-    <tr>
-      <td>0:30</td><td>30 د</td>
-      <td>المحور الثاني — التعليم</td>
-      <td>خطط، أنشطة، اختبارات، قصص رياض الأطفال، البرمجة المهندسة SMART</td>
-      <td>توجيهي</td>
+    <tr class="row-opening">
+      <td>السيدة عبلة مسروجة</td>
+      <td>مديرة مركز التضامن — شمال أفريقيا والمشرق العربي</td>
+      <td>تمثيل الشريك المنظم — مركز التضامن</td>
     </tr>
     <tr class="row-work">
-      <td>1:00</td><td>45 د</td>
-      <td>المحور الثالث — تطبيق عملي</td>
-      <td>عرض حي وتصميم: درس كامل، قصة تفاعلية بالهوية، اختبار وتنزيل مستند Word</td>
-      <td>تطبيقي</td>
-    </tr>
-    <tr style="background:#f0f8ff;">
-      <td>1:45</td><td>15 د</td>
-      <td>استراحة</td>
-      <td>فترة راحة منتصف البرنامج</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>2:00</td><td>25 د</td>
-      <td>المحور الرابع — النقابة</td>
-      <td>بيانات، تعاميم، محاضر، تقارير، حملات إعلامية ومقترحات مشاريع نقابية</td>
-      <td>توجيهي</td>
-    </tr>
-    <tr>
-      <td>2:25</td><td>15 د</td>
-      <td>المحور الخامس — الأدوات</td>
-      <td>تعريف بالأدوات العشر واستخداماتها وتنزيل حقيبة المعلمة الرقمية</td>
-      <td>توجيهي</td>
-    </tr>
-    <tr>
-      <td>2:40</td><td>10 د</td>
-      <td>المحور السادس — الأخلاقيات</td>
-      <td>خصوصية، أمن معلومات، مراجعة المحتوى، السياق الفلسطيني والحدود الأخلاقية</td>
-      <td>توجيهي</td>
-    </tr>
-    <tr class="row-work">
-      <td>2:50</td><td>10 د</td>
-      <td>المحور السابع — ختام</td>
-      <td>تطبيق وتجريب، أسئلة ومداخلات، استبانة تقييم</td>
-      <td>تطبيقي</td>
+      <td><strong>عمار اشتية</strong></td>
+      <td>متحدث ومدرب الورشة</td>
+      <td>تقديم المحتوى التدريبي من 9:40 حتى 2:30</td>
     </tr>
   </table>
-  <div class="box">
-    <div class="box-title">ملخص الوقت</div>
-    تأطير وتوجيه: 110 دقائق &nbsp;|&nbsp; تطبيق مباشر واستراحة: 70 دقيقة &nbsp;|&nbsp; <strong>المجموع: 180 دقيقة (ثلاث ساعات)</strong>
-  </div>
+</div>
+
+<!-- ٤ الجدول الرسمي -->
+<div class="section">
+  <h1>٤. برنامج التدريب — الجدول الرسمي</h1>
+  <p>فندق القصر — نابلس · الأربعاء 8 تموز 2026</p>
+  <table>
+    <tr>
+      <th style="width:22%">الوقت</th>
+      <th>العنوان / النشاط</th>
+    </tr>
+    <tr>
+      <td>09:00 – 9:30</td>
+      <td>الوصول والتسجيل</td>
+    </tr>
+    <tr class="row-opening">
+      <td>9:30 – 9:40</td>
+      <td><strong>الافتتاح والترحيب</strong><br/>
+        الأخت حنين بازيان — رئيسة النقابة الفرعية نابلس<br/>
+        عبد الكريم دويكات — أمين سر المجلس اللوائي نابلس<br/>
+        السيدة عبلة مسروجة — مديرة مركز التضامن في شمال أفريقيا والمشرق العربي</td>
+    </tr>
+    <tr>
+      <td>9:40 – 10:00</td>
+      <td>مقدمة عامة حول الذكاء الاصطناعي</td>
+    </tr>
+    <tr>
+      <td>10:00 – 10:40</td>
+      <td>أمثلة على استخدامات الذكاء الاصطناعي في قطاع التعليم</td>
+    </tr>
+    <tr class="row-break">
+      <td>10:40 – 11:00</td>
+      <td>استراحة (20 دقيقة)</td>
+    </tr>
+    <tr class="row-work">
+      <td>11:00 – 12:00</td>
+      <td>تطبيق عملي على كيفية استخدام الذكاء الاصطناعي</td>
+    </tr>
+    <tr>
+      <td>12:00 – 12:30</td>
+      <td>استخدامات الذكاء الاصطناعي في العمل النقابي</td>
+    </tr>
+    <tr>
+      <td>12:30 – 01:20</td>
+      <td>تعريف وشرح وأمثلة: ما هي أدوات الذكاء الاصطناعي التي يحتاجها كل معلم/ة</td>
+    </tr>
+    <tr>
+      <td>01:20 – 01:40</td>
+      <td>أخلاقيات استخدام الذكاء الاصطناعي</td>
+    </tr>
+    <tr class="row-work">
+      <td>01:40 – 2:30</td>
+      <td>أسئلة وتطبيق عملي، الخطوات القادمة والتوصيات</td>
+    </tr>
+    <tr>
+      <td>02:30</td>
+      <td>غداء ومغادرة</td>
+    </tr>
+  </table>
 </div>
 
 <!-- ٥ منهجية -->
 <div class="section">
   <h1>٥. منهجية التدريب وشروط النجاح</h1>
-
-  <h2>منهجية التدريب</h2>
   <table>
     <tr><th style="width:28%">الأسلوب</th><th>التطبيق</th></tr>
     <tr><td>التعلم بالمهمة</td><td>كل محور ينتهي بناتج فوري (درس / قصة / رسالة / تقرير)</td></tr>
-    <tr><td>التعلم بالحالة الواقعية</td><td>أمثلة من بيئة المدارس ورياض الأطفال والنقابة</td></tr>
-    <tr><td>المراجعة البشرية</td><td>كل مخرج AI يمر بمراجعة قبل الاعتماد — Human-in-the-loop</td></tr>
-    <tr><td>التطبيق المباشر</td><td>70% من الوقت تطبيق عملي على أجهزة المشاركات</td></tr>
+    <tr><td>التعلم بالحالة الواقعية</td><td>أمثلة من بيئة رياض الأطفال والنقابة في نابلس</td></tr>
+    <tr><td>المراجعة البشرية</td><td>كل مخرج AI يمر بمراجعة قبل الاعتماد</td></tr>
+    <tr><td>التطبيق المباشر</td><td>جلسة تطبيقية 60 دقيقة + ختام تطبيقي 50 دقيقة</td></tr>
   </table>
-
-  <h2>شروط نجاح الندوة</h2>
+  <h2>شروط النجاح</h2>
   <ul>
-    <li>توفر إنترنت مستقر + شاشة عرض + صوت واضح.</li>
-    <li>وجود هاتف أو حاسوب مع كل مشارك/مجموعة.</li>
-    <li>إنشاء حسابات مسبقة على الأدوات الأساسية (اختياري — يُساعد في الوقت).</li>
-    <li>ترتيب القاعة بطاولات مجموعات — وليس صفوف محاضرة.</li>
-    <li>تعيين منسق من النقابة للتجهيز والتواصل.</li>
+    <li>إنترنت مستقر + شاشة عرض + صوت واضح.</li>
+    <li>هاتف أو حاسوب مع كل مشاركة.</li>
+    <li>الحضور قبل 9:00 للتسجيل في فندق القصر.</li>
   </ul>
 </div>
 
 <!-- ٦ برومبت -->
 <div class="section">
   <h1>٦. إطار البرومبت الاحترافي</h1>
-  <p>قالب موحّد يُعتمد خلال الندوة لضمان نتائج دقيقة:</p>
   <table>
     <tr><th style="width:22%">العنصر</th><th>ماذا تكتبين</th><th>مثال</th></tr>
     <tr><td>الدور</td><td>من المساعد؟</td><td>«أنت مساعد تربوي / نقابي»</td></tr>
     <tr><td>المهمة</td><td>ماذا تريدين بالضبط؟</td><td>«أعد خطة درس 40 دقيقة عن…»</td></tr>
-    <tr><td>السياق</td><td>الصف، المرحلة، نوع المستند</td><td>«الصف الرابع — علوم — فلسطين»</td></tr>
-    <tr><td>القيود</td><td>لغة، طول، نبرة، وقت</td><td>«عربي مبسّط — بدون أجهزة في الصف»</td></tr>
-    <tr><td>المخرجات</td><td>شكل النتيجة المطلوبة</td><td>«جدول + 5 أسئلة + نشاط»</td></tr>
+    <tr><td>السياق</td><td>العمر، المرحلة، نوع المستند</td><td>«رياض أطفال — 5 سنوات — فلسطين»</td></tr>
+    <tr><td>القيود</td><td>لغة، طول، نبرة</td><td>«عربي مبسّط — بدون أجهزة في الصف»</td></tr>
+    <tr><td>المخرجات</td><td>شكل النتيجة</td><td>«قصة + 3 أسئلة + نشاط حركي»</td></tr>
   </table>
-  <div class="box">
-    <div class="box-title">قاعدة ذهبية</div>
-    برومبت واضح + مراجعة بشرية = توفير وقت وجودة عالية. برومبت عام = نتيجة ضعيفة تحتاج تعديلاً كبيراً.
-  </div>
 </div>
 
 <!-- ٧ أمان -->
@@ -348,52 +256,41 @@
   <h1>٧. ضوابط الخصوصية والأمان</h1>
   <table>
     <tr><th style="width:28%">الضوابط</th><th>التفاصيل</th></tr>
-    <tr><td>خصوصية الطلاب</td><td>يمنع إدخال أسماء الطلاب، صورهم، علاماتهم، أو تقاريرهم الشخصية</td></tr>
-    <tr><td>أمن المعلومات النقابية</td><td>يمنع إدخال معلومات داخلية غير مصرح بها أو سرية</td></tr>
-    <tr><td>التحقق من المحتوى</td><td>التحقق من أي معلومة قبل النشر أو التعميم — خاصة التاريخ والجغرافيا والدين</td></tr>
-    <tr><td>الاعتماد الرسمي</td><td>الخطابات والبيانات النقابية — نسخ نهائية بشرية فقط بعد المراجعة</td></tr>
-    <tr><td>القرارات الحساسة</td><td>لا يُعتمد على AI في قرارات انضباط أو تقييم نهائي أو شكاوى فردية</td></tr>
+    <tr><td>خصوصية الأطفال</td><td>يمنع إدخال أسماء الأطفال أو صورهم أو تقاريرهم الشخصية</td></tr>
+    <tr><td>أمن المعلومات النقابية</td><td>يمنع إدخال معلومات داخلية سرية غير مصرح بها</td></tr>
+    <tr><td>التحقق من المحتوى</td><td>التحقق من أي معلومة قبل النشر — خاصة التاريخ والجغرافيا</td></tr>
+    <tr><td>الاعتماد الرسمي</td><td>الخطابات والبيانات — نسخ نهائية بشرية بعد المراجعة</td></tr>
   </table>
 </div>
 
 <!-- ٨ مخرجات -->
 <div class="section">
-  <h1>٨. مخرجات الندوة</h1>
-  <p>بنهاية الندوة سيكون المشاركون قادرين على:</p>
+  <h1>٨. مخرجات التدريب</h1>
   <table>
     <tr><th style="width:5%">#</th><th>المخرج</th></tr>
-    <tr><td>١</td><td>توظيف الذكاء الاصطناعي في إعداد الدروس والأنشطة التعليمية.</td></tr>
-    <tr><td>٢</td><td>استخدام أدوات الذكاء الاصطناعي لتوفير الوقت ورفع جودة العمل.</td></tr>
-    <tr><td>٣</td><td>الاستفادة من الذكاء الاصطناعي في تطوير العمل النقابي وتحسين التواصل مع الأعضاء.</td></tr>
-    <tr><td>٤</td><td>كتابة برومبتات احترافية للحصول على أفضل النتائج.</td></tr>
-    <tr><td>٥</td><td>تطبيق معايير الاستخدام الآمن والأخلاقي في البيئة التعليمية والنقابية.</td></tr>
-  </table>
-
-  <h2>مخرجات تطبيقية لكل مشاركة</h2>
-  <table>
-    <tr><th style="width:5%">#</th><th>المخرج</th><th>الوصف</th></tr>
-    <tr><td>١</td><td>خطة درس أو نشاط</td><td>مُعدَّة بمساعدة AI ومُراجَعة بشرياً</td></tr>
-    <tr><td>٢</td><td>نماذج برومبتات</td><td>مجموعة صياغات جاهزة للاستخدام اليومي</td></tr>
-    <tr><td>٣</td><td>قائمة تحقق أمنية</td><td>قواعد الاستخدام الآمن والمسؤول</td></tr>
+    <tr><td>١</td><td>توظيف الذكاء الاصطناعي في إعداد الدروس والأنشطة لرياض الأطفال.</td></tr>
+    <tr><td>٢</td><td>استخدام أدوات AI لتوفير الوقت ورفع جودة العمل.</td></tr>
+    <tr><td>٣</td><td>الاستفادة من AI في العمل النقابي والتواصل مع الأعضاء.</td></tr>
+    <tr><td>٤</td><td>كتابة برومبتات احترافية.</td></tr>
+    <tr><td>٥</td><td>تطبيق معايير الاستخدام الآمن والأخلاقي.</td></tr>
   </table>
 </div>
 
 <!-- ٩ مواد -->
 <div class="section">
   <h1>٩. المواد المرافقة والقوالب</h1>
-  <p>يوصى بإرفاق المواد التالية مع الندوة:</p>
   <table>
     <tr><th style="width:5%">#</th><th>المادة</th><th>الغرض</th></tr>
-    <tr><td>١</td><td>ملف «50 برومبت» للتعليم والتنظيم النقابي</td><td>مرجع سريع للمعلمات والأعضاء</td></tr>
-    <tr><td>٢</td><td>قوالب جاهزة</td><td>خطة درس، تعميم، محضر اجتماع، تقرير مختصر</td></tr>
-    <tr><td>٣</td><td>قائمة الأدوات الموصى بها</td><td>دليل اختيار الأداة المناسبة لكل مهمة</td></tr>
-    <tr><td>٤</td><td>Checklist أخلاقيات وأمن معلومات</td><td>صفحة واحدة — للطباعة والتعليق</td></tr>
-    <tr><td>٥</td><td>عرض تقديمي مرافق</td><td>شرائح تدعم المحاور السبعة</td></tr>
+    <tr><td>١</td><td>ملف برومبتات للتعليم والتنظيم النقابي</td><td>مرجع سريع للمعلمات</td></tr>
+    <tr><td>٢</td><td>قوالب جاهزة</td><td>خطة درس، تعميم، محضر اجتماع</td></tr>
+    <tr><td>٣</td><td>قائمة الأدوات الموصى بها</td><td>ChatGPT، Canva، Gamma، NotebookLM وغيرها</td></tr>
+    <tr><td>٤</td><td>Checklist أخلاقيات وأمن</td><td>صفحة واحدة للطباعة</td></tr>
+    <tr><td>٥</td><td>الموقع التدريبي المرافق</td><td>دليل تفاعلي ومختبر أدوات</td></tr>
   </table>
 
   <div class="footer">
-    أجندة شاملة — الذكاء الاصطناعي في التعليم والتنظيم النقابي<br/>
-    المتحدث: عمار اشتية &nbsp;|&nbsp; التاريخ: 8 تموز 2026 &nbsp;|&nbsp; المدة: 3 ساعات &nbsp;|&nbsp; AG-2026-0708
+    برنامج حملات التنظيم والتوعية — الذكاء الاصطناعي في قطاع التعليم<br/>
+    المتحدث: عمار اشتية &nbsp;|&nbsp; 8 تموز 2026 &nbsp;|&nbsp; فندق القصر — نابلس &nbsp;|&nbsp; AG-2026-0708
   </div>
 </div>
 

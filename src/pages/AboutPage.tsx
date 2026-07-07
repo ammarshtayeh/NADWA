@@ -20,10 +20,10 @@ export const AboutPage: React.FC = () => {
             <span>نبذة عن الهيئة المنظمة</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100">
-            من نحن ورسالتنا الوطنية
+            عن البرنامج والجهات المنظمة
           </h1>
           <p className="max-w-xl mx-auto text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed">
-            تعرّفي على مسيرة جمعية معلمات فلسطين ونقابة معلمات ورياض الأطفال ودورهما في تمكين المعلمات ودعم حقوقهن المهنية والتربوية والرقمية.
+            برنامج حملات التنظيم والتوعية — بتنظيم مركز التضامن والاتحاد العام لنقابات عمال فلسطين، بالتنسيق مع النقابة الفرعية في نابلس.
           </p>
         </div>
       </section>
