@@ -347,6 +347,7 @@ export const siteContent: SiteContent = {
       { name: "▶️ عرض الندوة", href: "/workshop" },
       { name: "البرنامج", href: "/curriculum" },
       { name: "كيف أحاور الـ AI؟", href: "/how-to-prompt" },
+      { name: "إنسان أم AI؟", href: "/detect-ai" },
       { name: "مختبر الأدوات", href: "/sandbox" },
       { name: "البوابة النقابية", href: "/union" },
       { name: "الموارد", href: "/resources" },

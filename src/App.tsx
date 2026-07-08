@@ -18,6 +18,7 @@ import WorkshopPage from './pages/WorkshopPage';
 import AttendeePage from './pages/AttendeePage';
 import CheatsheetPage from './pages/CheatsheetPage';
 import EvaluationPage from './pages/EvaluationPage';
+import DetectAIPage from './pages/DetectAIPage';
 
 // Presenter Context & Control panel
 import { PresenterProvider } from './context/PresenterContext';
@@ -55,6 +56,7 @@ const AppShell: React.FC = () => {
             <Route path="/attendee" element={<AttendeePage />} />
             <Route path="/cheatsheet" element={<CheatsheetPage />} />
             <Route path="/evaluation" element={<EvaluationPage />} />
+            <Route path="/detect-ai" element={<DetectAIPage />} />
           </Routes>
         </main>
         {!presenterMode && <Footer />}

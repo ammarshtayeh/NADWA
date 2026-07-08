@@ -23,7 +23,8 @@ import {
   FileText,
   ClipboardCheck,
   Sparkles,
-  Heart
+  Heart,
+  ScanEye
 } from 'lucide-react';
 
 const trackIcons: Record<AttendeeTrack, React.ComponentType<{ className?: string }>> = {
@@ -278,6 +279,13 @@ export const AttendeePage: React.FC = () => {
             <div>
               <p className="font-black text-slate-100">البوابة النقابية</p>
               <p className="text-slate-500 text-xs mt-0.5">برومبتات المراسلات والمحاضر</p>
+            </div>
+          </Link>
+          <Link to="/detect-ai" className="flex items-center gap-4 glass-panel border-sky-500/20 rounded-2xl p-5 hover:border-sky-500/40 transition-colors sm:col-span-2">
+            <ScanEye className="w-8 h-8 text-sky-400 flex-shrink-0" />
+            <div>
+              <p className="font-black text-slate-100">إنسان أم AI؟</p>
+              <p className="text-slate-500 text-xs mt-0.5">كيف تميّزي النص والصورة — دليل عملي</p>
             </div>
           </Link>
         </div>

@@ -38,7 +38,19 @@ import {
   Menu,
   X,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  PenLine,
+  Shuffle,
+  Heart,
+  Copy,
+  List,
+  Globe,
+  Languages,
+  Hand,
+  Type,
+  Image,
+  Search,
+  User
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ComponentType<any>> = {
@@ -80,7 +92,19 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   Menu,
   X,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  PenLine,
+  Shuffle,
+  Heart,
+  Copy,
+  List,
+  Globe,
+  Languages,
+  Hand,
+  Type,
+  Image,
+  Search,
+  User
 };
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
