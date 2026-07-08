@@ -27,7 +27,7 @@ export const FloatingBot: React.FC = () => {
     { label: '📚 محاور الندوة', query: 'ما هي أهم محاور وتطبيقات الندوة؟' },
     { label: '⚖️ إجازة المعلمة السنوية', query: 'ما هي تفاصيل الإجازات السنوية للمعلمة في قانون العمل؟' },
     { label: '🛠️ أدوات الذكاء الاصطناعي', query: 'ما هي البرامج والأدوات التي سنتدرب عليها؟' },
-    { label: '✍️ كيف أسجل بالندوة؟', query: 'أريد حجز مقعد والتسجيل في الندوة.' }
+    { label: '▶️ عرض الورشة', query: 'أريد فتح عرض الورشة الكامل' },
   ];
 
   useEffect(() => {
@@ -38,6 +38,10 @@ export const FloatingBot: React.FC = () => {
 
   const handleActionClick = (targetId: string) => {
     setIsOpen(false);
+    if (targetId === 'workshop-link') {
+      window.location.href = '/workshop';
+      return;
+    }
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -61,13 +65,22 @@ export const FloatingBot: React.FC = () => {
         text: 'عذراً، لم أفهم سؤالكِ تماماً. يمكنكِ سؤالي عن محاور الندوة، أدوات الذكاء الاصطناعي، قانون العمل الفلسطيني للمعلمات، أو كيفية التسجيل.'
       };
 
-      if (normalized.includes('تسجيل') || normalized.includes('سجل') || normalized.includes('احجز')) {
+      if (normalized.includes('عرض') || normalized.includes('ورش') || normalized.includes('workshop')) {
+        botResponse = {
+          sender: 'bot',
+          text: 'عرض الورشة الكامل متاح في صفحة /workshop — 11 جلسة من التسجيل حتى الغداء، مع برومبتات جاهزة لمدارس ورياض أطفال والعمل النقابي.',
+          action: {
+            label: 'افتحي عرض الورشة ▶️',
+            targetId: 'workshop-link'
+          }
+        };
+      } else if (normalized.includes('تسجيل') || normalized.includes('سجل') || normalized.includes('احجز')) {
         botResponse = {
           sender: 'bot',
           text: 'التسجيل للندوة مجاني بالكامل ومفتوح حالياً لمعلمات المدارس، ورياض الأطفال، والمشرفات التربويات وعضوات النقابة. المقاعد محدودة لضمان التطبيق العملي الفعال.',
           action: {
-            label: 'اضغطي هنا للانتقال لنموذج التسجيل ✍️',
-            targetId: 'register'
+            label: 'افتحي عرض الورشة الكامل ▶️',
+            targetId: 'workshop-link'
           }
         };
       } else if (normalized.includes('إجازة') || normalized.includes('قانون') || normalized.includes('حقوق') || normalized.includes('leave') || normalized.includes('law')) {

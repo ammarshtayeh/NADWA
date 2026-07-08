@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { usePresenter } from '../context/PresenterContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { workshopSessions } from '../data/workshop';
-import { Play, Pause, RotateCcw, ChevronLeft, ChevronRight, Type, Eye, EyeOff, XCircle } from 'lucide-react';
+import { Play, Pause, RotateCcw, ChevronLeft, ChevronRight, Type, Eye, EyeOff, XCircle, Sun, Moon } from 'lucide-react';
 
 export const PresenterPanel: React.FC = () => {
   const navigate = useNavigate();
@@ -21,6 +21,8 @@ export const PresenterPanel: React.FC = () => {
     setFontSizeClass,
     showSpeakerNotes,
     setShowSpeakerNotes,
+    theme,
+    toggleTheme,
   } = usePresenter();
 
   const currentStep = workshopSessions[currentAxisIdx];
@@ -99,8 +101,23 @@ export const PresenterPanel: React.FC = () => {
           </button>
         </div>
         <span className="hidden md:inline text-[10px] text-slate-500 font-mono border-r border-slate-800 pr-3">
-          {currentStep.time}
+          {currentStep.time}{currentStep.duration ? ` · ${currentStep.duration}` : ''}
         </span>
+      </div>
+
+      <div className="hidden lg:flex items-center flex-shrink-0">
+        <select
+          value={currentAxisIdx}
+          onChange={(e) => setCurrentAxisIdx(Number(e.target.value))}
+          className="bg-slate-950/70 border border-slate-800 text-slate-300 text-[11px] font-bold rounded-xl px-3 py-2 max-w-[180px] cursor-pointer focus:border-emerald-500/40 focus:outline-none"
+          title="قفز لجلسة"
+        >
+          {workshopSessions.map((s, i) => (
+            <option key={s.id} value={i}>
+              {i}. {s.navTitle}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="flex items-center gap-2 max-w-xl w-full flex-grow justify-center">
@@ -157,6 +174,15 @@ export const PresenterPanel: React.FC = () => {
           <span className="hidden sm:inline">
             {fontSizeClass === 'text-normal' ? 'خط عادي' : fontSizeClass === 'text-large' ? 'خط كبير' : 'خط ضخم'}
           </span>
+        </button>
+
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="p-2 rounded-xl bg-slate-950/70 hover:bg-slate-850 border border-slate-800 text-slate-300 cursor-pointer"
+          title="تبديل السمة"
+        >
+          {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-sky-400" />}
         </button>
 
         <button

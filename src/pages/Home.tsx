@@ -4,13 +4,18 @@ import { motion } from 'framer-motion';
 import Hero from '../sections/Hero';
 import Stats from '../sections/Stats';
 import WhoIsItFor from '../sections/WhoIsItFor';
+import WhatWillYouLearn from '../sections/WhatWillYouLearn';
+import Outcomes from '../sections/Outcomes';
+import PreWorkshopChecklist from '../sections/PreWorkshopChecklist';
 import QRCodeContainer from '../components/QRCodeContainer';
-import { Tv, ArrowLeft, Sparkles, List } from 'lucide-react';
+import { siteContent } from '../data/content';
+import { Tv, ArrowLeft, Sparkles, List, User } from 'lucide-react';
 import { usePresenter } from '../context/PresenterContext';
 import { workshopSessions } from '../data/workshop';
 
 export const Home: React.FC = () => {
   const { setPresenterMode, setCurrentAxisIdx } = usePresenter();
+  const { trainer } = siteContent;
 
   const startWorkshop = () => {
     setCurrentAxisIdx(0);
@@ -21,7 +26,6 @@ export const Home: React.FC = () => {
     <div className="relative">
       <Hero />
 
-      {/* Primary CTA — the site IS the presentation */}
       <section className="relative py-12 bg-slate-950 border-b border-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -35,7 +39,7 @@ export const Home: React.FC = () => {
               <span>بدون PowerPoint — الموقع هو العرض الكامل</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-slate-100 mb-3">
-              {workshopSessions.length} جلسة — من التسجيل حتى الغداء
+              {workshopSessions.length} جلسة — مدارس · روضة · نقابة
             </h2>
             <p className="text-slate-400 text-sm md:text-base mb-8 max-w-xl mx-auto leading-relaxed">
               افتحي وضع المدرب ومرّري بين المحاور بالأسهم. كل شيء هنا: الجدول، الأمثلة، البرومبتات، الأدوات، ملاحظات الإلقاء، والتطبيق العملي.
@@ -61,8 +65,28 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* بطاقة المدرب */}
+      <section className="py-12 bg-slate-900/20 border-b border-slate-900/50">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="glass-panel border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-right">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 border border-emerald-500/25 flex items-center justify-center flex-shrink-0">
+              <User className="w-10 h-10 text-emerald-400" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-emerald-400 text-xs font-bold mb-1">مدرب الورشة</p>
+              <h3 className="text-xl font-black text-slate-100">{trainer.name}</h3>
+              <p className="text-slate-400 text-sm mt-2 leading-relaxed">{trainer.role}</p>
+              <p className="text-slate-500 text-xs mt-3 italic leading-relaxed">«{trainer.introQuote}»</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <PreWorkshopChecklist />
       <Stats />
       <WhoIsItFor />
+      <WhatWillYouLearn />
+      <Outcomes />
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         <QRCodeContainer />
@@ -72,13 +96,14 @@ export const Home: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 text-center space-y-6">
           <h2 className="text-xl font-bold text-slate-200">للمشاركات — افتحي الموقع على جوالك</h2>
           <p className="text-slate-400 text-sm max-w-lg mx-auto">
-            انسخي البرومبتات، جرّبي الأمثلة، وارجعي للموقع بعد الورشة كمرجع دائم
+            انسخي البرومبتات، جرّبي الأمثلة، وارجعي للموقع بعد الورشة كمرجع دائم — مدارس، روضة، ونقابة
           </p>
           <Link
             to="/workshop"
+            onClick={startWorkshop}
             className="inline-flex items-center gap-2 text-emerald-400 font-bold text-sm hover:text-emerald-300"
           >
-            الذهاب للورشة
+            ابدأ عرض الورشة
             <ArrowLeft className="w-4 h-4" />
           </Link>
         </div>

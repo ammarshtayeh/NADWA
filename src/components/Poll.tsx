@@ -8,7 +8,7 @@ interface PollOption {
   votes: number;
 }
 
-export const Poll: React.FC = () => {
+export const Poll: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
   const [hasVoted, setHasVoted] = useState<boolean>(() => {
     return localStorage.getItem('poll_voted') === 'true';
   });
@@ -49,12 +49,12 @@ export const Poll: React.FC = () => {
   };
 
   return (
-    <section id="poll-section" className="relative py-20 bg-slate-900/10 overflow-hidden border-b border-slate-900/40">
-      <div className="absolute inset-0 bg-tatreez-stitch opacity-[0.01] z-0"></div>
-      <div className="absolute top-10 right-10 w-80 h-80 glow-green opacity-[0.03] blur-[100px] z-0"></div>
+    <section id="poll-section" className={`relative overflow-hidden ${compact ? 'py-0' : 'py-20 bg-slate-900/10 border-b border-slate-900/40'}`}>
+      {!compact && <div className="absolute inset-0 bg-tatreez-stitch opacity-[0.01] z-0"></div>}
+      {!compact && <div className="absolute top-10 right-10 w-80 h-80 glow-green opacity-[0.03] blur-[100px] z-0"></div>}
 
-      <div className="relative max-w-4xl mx-auto px-4 z-10">
-        <div className="glass-panel border-slate-900 rounded-3xl p-6 sm:p-10 space-y-8">
+      <div className={`relative z-10 ${compact ? '' : 'max-w-4xl mx-auto px-4'}`}>
+        <div className={`glass-panel border-slate-900 space-y-8 ${compact ? 'rounded-2xl p-4 sm:p-6 border-emerald-500/15' : 'rounded-3xl p-6 sm:p-10'}`}>
           
           {/* Header */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

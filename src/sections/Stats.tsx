@@ -30,9 +30,9 @@ export const Stats: React.FC = () => {
       color: "text-red-400 border-red-500/20"
     },
     {
-      number: "4",
-      label: "محاور تطبيقية",
-      description: "تعليم · نقابة · أدوات · أخلاقيات وتطبيق ختامي.",
+      number: "3",
+      label: "محاور رئيسية",
+      description: "مدارس · رياض أطفال · عمل نقابي — + أدوات وأخلاقيات.",
       icon: Users,
       color: "text-amber-400 border-amber-500/20"
     },

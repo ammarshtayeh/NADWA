@@ -6,6 +6,8 @@ import type { WorkshopBlock, WorkshopSession } from '../data/workshop';
 import { siteContent } from '../data/content';
 import { Icon } from '../components/Icons';
 import SpeakerNotes from '../components/SpeakerNotes';
+import Poll from '../components/Poll';
+import { usePresenter } from '../context/PresenterContext';
 import {
   Clock,
   Copy,
@@ -40,6 +42,13 @@ const calloutTitleTones: Record<string, string> = {
   green: 'text-emerald-400',
   red: 'text-red-400',
   blue: 'text-sky-400'
+};
+
+const pillarColors: Record<string, { border: string; bg: string; icon: string }> = {
+  emerald: { border: 'border-emerald-500/30', bg: 'bg-emerald-950/15', icon: 'text-emerald-400' },
+  amber: { border: 'border-amber-500/30', bg: 'bg-amber-950/15', icon: 'text-amber-400' },
+  red: { border: 'border-red-500/30', bg: 'bg-red-950/15', icon: 'text-red-400' },
+  sky: { border: 'border-sky-500/30', bg: 'bg-sky-950/15', icon: 'text-sky-400' }
 };
 
 /* ---------- زر نسخ برومبت ---------- */
@@ -119,7 +128,20 @@ const BlockRenderer: React.FC<{ block: WorkshopBlock }> = ({ block }) => {
                 </span>
               )}
             </div>
-            <CopyButton text={block.text} />
+            <div className="flex items-center gap-2">
+              {block.toolUrl && (
+                <a
+                  href={block.toolUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/30 bg-sky-950/20 text-sky-300 text-xs font-bold hover:border-sky-400/50 hover:text-sky-200 transition-all"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>فتح الأداة</span>
+                </a>
+              )}
+              <CopyButton text={block.text} />
+            </div>
           </div>
           <p className="px-4 py-3.5 text-slate-200 text-sm sm:text-base leading-relaxed font-medium select-all" dir="rtl">
             {block.text}
@@ -224,6 +246,40 @@ const BlockRenderer: React.FC<{ block: WorkshopBlock }> = ({ block }) => {
         </div>
       );
 
+    case 'pillars': {
+      const cols = block.items.length <= 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+      return (
+        <div className="space-y-3">
+          {block.title && (
+            <h3 className="text-lg sm:text-xl font-extrabold text-slate-100 border-r-4 border-emerald-500 pr-3">
+              {block.title}
+            </h3>
+          )}
+          <div className={`grid ${cols} gap-3`}>
+            {block.items.map((item, i) => {
+              const colors = pillarColors[item.color] ?? pillarColors.emerald;
+              return (
+                <div
+                  key={i}
+                  className={`rounded-xl border-2 p-4 sm:p-5 ${colors.border} ${colors.bg} hover:scale-[1.01] transition-transform`}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 ${colors.icon} flex-shrink-0`}>
+                      <Icon name={item.icon} size={22} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-black text-slate-100 text-sm sm:text-base">{item.title}</p>
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+
     default:
       return null;
   }
@@ -232,6 +288,7 @@ const BlockRenderer: React.FC<{ block: WorkshopBlock }> = ({ block }) => {
 /* ---------- الصفحة الرئيسية للعرض ---------- */
 export const WorkshopPage: React.FC = () => {
   const { event } = siteContent;
+  const { setCurrentAxisIdx, presenterMode } = usePresenter();
   const [activeId, setActiveId] = useState<string>(workshopSessions[0].id);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
@@ -262,19 +319,70 @@ export const WorkshopPage: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // مزامنة شريط المدرب مع الجلسة الظاهرة
+  useEffect(() => {
+    const idx = workshopSessions.findIndex((s) => s.id === activeId);
+    if (idx >= 0) setCurrentAxisIdx(idx);
+  }, [activeId, setCurrentAxisIdx]);
+
   const scrollTo = (id: string) => {
     sectionRefs.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const goPrev = () => {
-    if (activeIndex > 0) scrollTo(workshopSessions[activeIndex - 1].id);
+    if (activeIndex > 0) {
+      const idx = activeIndex - 1;
+      setCurrentAxisIdx(idx);
+      scrollTo(workshopSessions[idx].id);
+    }
   };
   const goNext = () => {
-    if (activeIndex < workshopSessions.length - 1) scrollTo(workshopSessions[activeIndex + 1].id);
+    if (activeIndex < workshopSessions.length - 1) {
+      const idx = activeIndex + 1;
+      setCurrentAxisIdx(idx);
+      scrollTo(workshopSessions[idx].id);
+    }
   };
+
+  const progressPct = useMemo(
+    () => Math.round(((activeIndex + 1) / workshopSessions.length) * 100),
+    [activeIndex]
+  );
+
+  // اختصارات لوحة المفاتيح: ← السابق · → التالي
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (activeIndex > 0) {
+          const idx = activeIndex - 1;
+          setCurrentAxisIdx(idx);
+          scrollTo(workshopSessions[idx].id);
+        }
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (activeIndex < workshopSessions.length - 1) {
+          const idx = activeIndex + 1;
+          setCurrentAxisIdx(idx);
+          scrollTo(workshopSessions[idx].id);
+        }
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [activeIndex]);
 
   return (
     <div className="relative pt-20">
+      {/* شريط التقدم */}
+      <div className="fixed top-[72px] left-0 right-0 z-40 h-1 bg-slate-900">
+        <div
+          className="h-full bg-gradient-to-l from-emerald-500 to-teal-400 transition-all duration-500"
+          style={{ width: `${progressPct}%` }}
+        />
+      </div>
       {/* ترويسة الصفحة */}
       <section className="relative py-12 bg-slate-950 overflow-hidden border-b border-slate-900/60">
         <div className="absolute inset-0 bg-tatreez-stitch opacity-[0.03] z-0"></div>
@@ -395,6 +503,13 @@ export const WorkshopPage: React.FC = () => {
                         <BlockRenderer key={i} block={block} />
                       ))}
 
+                      {/* استفتاء تفاعلي — جلسة المقدمة */}
+                      {session.id === 'intro' && (
+                        <div className="rounded-2xl border border-slate-800 overflow-hidden">
+                          <Poll compact />
+                        </div>
+                      )}
+
                       {/* ملاحظات المدرب — تظهر فقط في وضع العارض */}
                       {session.notes && (
                         <SpeakerNotes
@@ -429,6 +544,9 @@ export const WorkshopPage: React.FC = () => {
                 <Link to="/guide" className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold rounded-xl text-sm transition-colors">
                   دليل المعلمة الكامل
                 </Link>
+                <Link to="/union" className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold rounded-xl text-sm transition-colors">
+                  البوابة النقابية
+                </Link>
               </div>
             </div>
           </div>
@@ -436,6 +554,7 @@ export const WorkshopPage: React.FC = () => {
       </div>
 
       {/* أزرار التنقل السريع بين الجلسات */}
+      {!presenterMode && (
       <div className="fixed bottom-6 left-6 z-40 flex flex-col gap-2">
         <button
           onClick={goPrev}
@@ -454,8 +573,10 @@ export const WorkshopPage: React.FC = () => {
           <ChevronDown className="w-5 h-5" />
         </button>
       </div>
+      )}
 
       {/* شريط الجلسة الحالية — موبايل */}
+      {!presenterMode && (
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-4 py-2.5">
         <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">
           <span className="text-emerald-400 text-xs font-black truncate">
@@ -466,6 +587,7 @@ export const WorkshopPage: React.FC = () => {
           </span>
         </div>
       </div>
+      )}
     </div>
   );
 };

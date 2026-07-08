@@ -96,7 +96,7 @@ export const Hero: React.FC = () => {
               {hero.title}
             </span>
             <span className="block text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-red-400 bg-clip-text text-transparent leading-snug">
-              تدريب حول الاستفادة من الذكاء الاصطناعي في قطاع التعليم
+              مدارس · رياض أطفال · عمل نقابي
             </span>
           </motion.h1>
 
