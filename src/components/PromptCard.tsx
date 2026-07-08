@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, ExternalLink } from 'lucide-react';
+import { Copy, Check, ExternalLink, MessageCircle } from 'lucide-react';
 
 interface PromptCardProps {
   title: string;
@@ -8,6 +8,7 @@ interface PromptCardProps {
   tool?: string;
   toolUrl?: string;
   badge?: string;
+  showWhatsApp?: boolean;
 }
 
 export const PromptCard: React.FC<PromptCardProps> = ({
@@ -16,7 +17,8 @@ export const PromptCard: React.FC<PromptCardProps> = ({
   prompt,
   tool,
   toolUrl,
-  badge
+  badge,
+  showWhatsApp = true
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -28,6 +30,11 @@ export const PromptCard: React.FC<PromptCardProps> = ({
     } catch {
       // ignore
     }
+  };
+
+  const shareWhatsApp = () => {
+    const text = encodeURIComponent(`${title}\n\n${prompt}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -62,6 +69,17 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               <ExternalLink className="w-3 h-3" />
               فتح
             </a>
+          )}
+          {showWhatsApp && (
+            <button
+              type="button"
+              onClick={shareWhatsApp}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-green-500/25 text-green-400 text-[10px] font-bold hover:border-green-400/40 cursor-pointer"
+              title="مشاركة عبر واتساب"
+            >
+              <MessageCircle className="w-3 h-3" />
+              واتساب
+            </button>
           )}
           <button
             type="button"

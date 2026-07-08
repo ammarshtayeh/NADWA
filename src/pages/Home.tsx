@@ -82,6 +82,26 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* للمشاركات — بوابة سريعة */}
+      <section className="relative py-10 bg-gradient-to-b from-emerald-950/20 to-slate-950 border-b border-emerald-900/30">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <Link
+            to="/attendee"
+            className="inline-flex flex-col sm:flex-row items-center gap-4 glass-panel border-emerald-500/25 rounded-2xl p-6 sm:p-8 w-full hover:border-emerald-500/45 transition-all group"
+          >
+            <span className="text-4xl">📱</span>
+            <div className="text-right flex-grow">
+              <p className="text-emerald-400 text-xs font-bold mb-1">للمشاركات في القاعة</p>
+              <h2 className="text-xl font-black text-slate-100 group-hover:text-emerald-300 transition-colors">
+                بوابة المشاركة — مسارك، برومبتاتك، تحدي 7 أيام
+              </h2>
+              <p className="text-slate-500 text-sm mt-1">اختاري مدارس / روضة / نقابة · احفظي المفضلة · ورقة غش للطباعة</p>
+            </div>
+            <span className="text-emerald-400 font-bold text-sm flex-shrink-0">ادخلي ←</span>
+          </Link>
+        </div>
+      </section>
+
       <PreWorkshopChecklist />
       <Stats />
       <WhoIsItFor />

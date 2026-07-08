@@ -532,8 +532,14 @@ export const WorkshopPage: React.FC = () => {
                 كل ما عُرض اليوم — وأكثر — متاح بشكل دائم في صفحات الموقع:
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Link to="/resources" className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-sm transition-colors">
-                  مكتبة الأوامر والموارد
+                <Link to="/attendee" className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-sm transition-colors">
+                  📱 بوابة المشاركة
+                </Link>
+                <Link to="/evaluation" className="px-5 py-2.5 bg-amber-500/90 hover:bg-amber-500 text-slate-950 font-bold rounded-xl text-sm transition-colors">
+                  استبانة التقييم
+                </Link>
+                <Link to="/cheatsheet" className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold rounded-xl text-sm transition-colors">
+                  ورقة الغش (طباعة)
                 </Link>
                 <Link to="/sandbox" className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-bold rounded-xl text-sm transition-colors">
                   مختبر التوليد والأدوات

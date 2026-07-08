@@ -343,6 +343,7 @@ export const siteContent: SiteContent = {
     logoText: "تدريب AI — نابلس",
     links: [
       { name: "الرئيسية", href: "/" },
+      { name: "📱 بوابة المشاركة", href: "/attendee" },
       { name: "▶️ عرض الندوة", href: "/workshop" },
       { name: "البرنامج", href: "/curriculum" },
       { name: "كيف أحاور الـ AI؟", href: "/how-to-prompt" },

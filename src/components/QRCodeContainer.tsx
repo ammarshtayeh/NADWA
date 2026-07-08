@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Sparkles, X, Maximize2 } from 'lucide-react';
 
 export const QRCodeContainer: React.FC = () => {
-  const [qrUrl, setQrUrl] = useState('https://nadwa.vercel.app/workshop');
+  const [qrUrl, setQrUrl] = useState('https://nadwa.vercel.app/attendee');
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const origin = window.location.origin;
-      setQrUrl(`${origin}/workshop`);
+      setQrUrl(`${origin}/attendee`);
     }
   }, []);
 
@@ -55,9 +55,9 @@ export const QRCodeContainer: React.FC = () => {
                 <Sparkles className="w-4 h-4 text-red-500 animate-pulse" />
                 <span>مسح وتنزيل الموارد</span>
               </span>
-              <h3 className="text-lg sm:text-xl font-black text-slate-100">الحقيبة الرقمية للندوة</h3>
+              <h3 className="text-lg sm:text-xl font-black text-slate-100">بوابة المشاركة — للحاضرات</h3>
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                انقر على الرمز لتكبيره على كامل الشاشة؛ لكي تتمكن جميع المعلمات الحاضرات في الندوة من مسحه بكاميرا الجوال دفعة واحدة من مسافة بعيدة وتحميل الموارد الرقمية والكتب التدريبية مباشرة.
+                امسحي الرمز بكاميرا الجوال — تفتح بوابة المشاركة: مسارك (مدرسة/روضة/نقابة)، برومبتات جاهزة، تحدي 7 أيام، وورقة غش للطباعة.
               </p>
             </div>
             

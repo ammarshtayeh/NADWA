@@ -15,6 +15,9 @@ import HowToPromptPage from './pages/HowToPromptPage';
 import ResourcesPage from './pages/ResourcesPage';
 import TeacherGuidePage from './pages/TeacherGuidePage';
 import WorkshopPage from './pages/WorkshopPage';
+import AttendeePage from './pages/AttendeePage';
+import CheatsheetPage from './pages/CheatsheetPage';
+import EvaluationPage from './pages/EvaluationPage';
 
 // Presenter Context & Control panel
 import { PresenterProvider } from './context/PresenterContext';
@@ -49,6 +52,9 @@ const AppShell: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/guide" element={<TeacherGuidePage />} />
+            <Route path="/attendee" element={<AttendeePage />} />
+            <Route path="/cheatsheet" element={<CheatsheetPage />} />
+            <Route path="/evaluation" element={<EvaluationPage />} />
           </Routes>
         </main>
         {!presenterMode && <Footer />}
